@@ -1,0 +1,107 @@
+<form [formGroup]="registerForm" (ngSubmit)="submitRegiterForm()">
+  <h2>Register</h2>
+  <div class="mb-3">
+    <label for="title" class="form-label">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="Name"
+      aria-describedby="titleHelp"
+      formControlName="Name"
+    />
+    <div
+      id="titleHelp"
+      class="form-text text-danger"
+      *ngIf="
+        registerForm.controls['Name'].touched &&
+        registerForm.controls['Name'].invalid
+      "
+    >
+      <span *ngIf="registerForm.controls['Name'].errors?.['required']">
+        This field is required
+      </span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="title" class="form-label">userName</label>
+    <input
+      type="text"
+      class="form-control"
+      id="userName"
+      aria-describedby="titleHelp"
+      formControlName="userName"
+    />
+    <div
+      id="titleHelp"
+      class="form-text text-danger"
+      *ngIf="
+        registerForm.controls['userName'].touched &&
+        registerForm.controls['userName'].invalid
+      "
+    >
+      <span *ngIf="registerForm.controls['userName'].errors?.['required']">
+        This field is required
+      </span>
+      <span *ngIf="registerForm.controls['userName'].errors?.['pattern']">
+        don't let whitespace between letters
+      </span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="title" class="form-label">Email Address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="title"
+      aria-describedby="titleHelp"
+      formControlName="Email"
+    />
+    <div
+      id="titleHelp"
+      class="form-text text-danger"
+      *ngIf="
+        registerForm.controls['Email'].touched &&
+        registerForm.controls['Email'].invalid
+      "
+    >
+      <span *ngIf="registerForm.controls['Email'].errors?.['required']">
+        This field is required
+      </span>
+      <span *ngIf="registerForm.controls['Email'].errors?.['pattern']">
+        please enter email as "test@gmail.com"
+      </span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="title" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="title"
+      aria-describedby="titleHelp"
+      formControlName="Password"
+    />
+    <div
+      class="form-text text-danger"
+      *ngIf="
+        registerForm.controls['Password'].touched &&
+        registerForm.controls['Password'].invalid
+      "
+    >
+      <span *ngIf="registerForm.controls['Password'].errors?.['required']"
+        >This field is required</span
+      >
+      <span *ngIf="registerForm.controls['Password'].errors?.['minlength']"
+        >min length is 8</span
+      >
+      <span *ngIf="registerForm.controls['Password'].errors?.['pattern']">
+        password must be include 1 chracter of them[Aa1- *@%$#] as
+        "P@ssword1234"
+      </span>
+    </div>
+  </div>
+
+  <button type="submit" class="" [disabled]="registerForm.invalid">
+    Register
+  </button>
+</form>
