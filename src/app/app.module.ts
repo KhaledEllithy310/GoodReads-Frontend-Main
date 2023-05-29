@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SignInComponent } from './register/components/sign-in/sign-in.component';
 import { SignUpComponent } from './register/components/sign-up/sign-up.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [AppComponent, SignInComponent, SignUpComponent],
@@ -19,6 +21,7 @@ import { SignUpComponent } from './register/components/sign-up/sign-up.component
     // RegisterModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

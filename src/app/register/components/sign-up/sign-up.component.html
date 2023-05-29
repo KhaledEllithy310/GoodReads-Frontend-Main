@@ -1,48 +1,50 @@
-<form [formGroup]="registerForm" (ngSubmit)="submitRegiterForm()">
+<form [formGroup]="registerForm" enctype="multipart/form-data" >
   <h2>Register</h2>
   <div class="mb-3">
-    <label for="title" class="form-label">Name</label>
+    <label for="title" class="form-label">First Name</label>
     <input
       type="text"
       class="form-control"
       id="Name"
       aria-describedby="titleHelp"
-      formControlName="Name"
+      formControlName="firstName"
+      [(ngModel)]="firstName"
     />
     <div
       id="titleHelp"
       class="form-text text-danger"
       *ngIf="
-        registerForm.controls['Name'].touched &&
-        registerForm.controls['Name'].invalid
+        registerForm.controls['firstName'].touched &&
+        registerForm.controls['firstName'].invalid
       "
     >
-      <span *ngIf="registerForm.controls['Name'].errors?.['required']">
+      <span  class="text-danger" *ngIf="registerForm.controls['firstName'].errors?.['required']">
         This field is required
       </span>
     </div>
   </div>
   <div class="mb-3">
-    <label for="title" class="form-label">userName</label>
+    <label for="title" class="form-label">Last Name</label>
     <input
       type="text"
       class="form-control"
       id="userName"
       aria-describedby="titleHelp"
-      formControlName="userName"
+      formControlName="lastName"
+      [(ngModel)]="lastName"
     />
     <div
       id="titleHelp"
       class="form-text text-danger"
       *ngIf="
-        registerForm.controls['userName'].touched &&
-        registerForm.controls['userName'].invalid
+        registerForm.controls['lastName'].touched &&
+        registerForm.controls['lastName'].invalid
       "
     >
-      <span *ngIf="registerForm.controls['userName'].errors?.['required']">
+      <span  class="text-danger" *ngIf="registerForm.controls['lastName'].errors?.['required']">
         This field is required
       </span>
-      <span *ngIf="registerForm.controls['userName'].errors?.['pattern']">
+      <span class="text-danger" *ngIf="registerForm.controls['lastName'].errors?.['pattern']">
         don't let whitespace between letters
       </span>
     </div>
@@ -54,20 +56,22 @@
       class="form-control"
       id="title"
       aria-describedby="titleHelp"
-      formControlName="Email"
+      formControlName="email"
+      [(ngModel)]="email"
+
     />
     <div
       id="titleHelp"
       class="form-text text-danger"
       *ngIf="
-        registerForm.controls['Email'].touched &&
-        registerForm.controls['Email'].invalid
+        registerForm.controls['email'].touched &&
+        registerForm.controls['email'].invalid
       "
     >
-      <span *ngIf="registerForm.controls['Email'].errors?.['required']">
+      <span  class="text-danger" *ngIf="registerForm.controls['email'].errors?.['required']">
         This field is required
       </span>
-      <span *ngIf="registerForm.controls['Email'].errors?.['pattern']">
+      <span  class="text-danger" *ngIf="registerForm.controls['email'].errors?.['pattern']">
         please enter email as "test@gmail.com"
       </span>
     </div>
@@ -79,29 +83,36 @@
       class="form-control"
       id="title"
       aria-describedby="titleHelp"
-      formControlName="Password"
+      formControlName="password"
+      [(ngModel)]="password"
     />
     <div
       class="form-text text-danger"
       *ngIf="
-        registerForm.controls['Password'].touched &&
-        registerForm.controls['Password'].invalid
+        registerForm.controls['password'].touched &&
+        registerForm.controls['password'].invalid
       "
     >
-      <span *ngIf="registerForm.controls['Password'].errors?.['required']"
+      <span  class="text-danger" *ngIf="registerForm.controls['password'].errors?.['required']"
         >This field is required</span
       >
-      <span *ngIf="registerForm.controls['Password'].errors?.['minlength']"
+      <span class="text-danger"  *ngIf="registerForm.controls['password'].errors?.['minlength']"
         >min length is 8</span
       >
-      <span *ngIf="registerForm.controls['Password'].errors?.['pattern']">
+      <span class="text-danger"  *ngIf="registerForm.controls['password'].errors?.['pattern']">
         password must be include 1 chracter of them[Aa1- *@%$#] as
         "P@ssword1234"
       </span>
     </div>
   </div>
-
-  <button type="submit" class="" [disabled]="registerForm.invalid">
+<div>
+  <label for="title" class="form-label">Profile Avatar</label>
+  <div class="input-group">
+    <input #fileInput type="file" class="form-control file p-1" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+  </div>
+</div>
+  <button type="submit" class="" [disabled]="registerForm.invalid" (click)="submitRegiterForm()">
     Register
   </button>
+  <p class="text-center mt-3 mb-3">have an account ? <a routerLink="/signin">Login</a></p>
 </form>

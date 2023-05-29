@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -7,15 +10,25 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./sign-up.component.css'],
 })
 export class SignUpComponent {
+  @ViewChild('fileInput', { static: false }) fileInput!: ElementRef;
   registerForm: FormGroup;
   passValue!: string;
   confirmPassValue!: string;
-  constructor(private fb: FormBuilder) {
+  firstName: any;
+  lastName: any;
+  password: any;
+  email: any;
+  error: any;
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private router: Router
+  ) {
     // this.passValue = this.registerForm.controls['Password'].value;
     // this.confirmPassValue = this.registerForm.controls['ConfirmPassword'].value;
 
     this.registerForm = this.fb.group({
-      Email: [
+      email: [
         '',
         [
           Validators.pattern(
@@ -23,7 +36,7 @@ export class SignUpComponent {
           ),
         ],
       ],
-      Password: [
+      password: [
         '',
         [
           Validators.required,
@@ -33,8 +46,8 @@ export class SignUpComponent {
           ),
         ],
       ],
-      Name: ['', [Validators.required]],
-      userName: [
+      firstName: ['', [Validators.required]],
+      lastName: [
         '',
         [
           Validators.required,
@@ -46,6 +59,33 @@ export class SignUpComponent {
   }
 
   submitRegiterForm() {
-    console.log(this.registerForm);
+    const avatar = this.fileInput.nativeElement.files[0];
+    const formData = new FormData();
+    formData.set('firstName', this.firstName);
+    formData.set('lastName', this.lastName);
+    formData.set('email', this.email);
+    formData.set('password', this.password);
+    formData.set('avatar', avatar);
+    console.log(formData);
+
+    this.http.post('http://localhost:8080/register', formData).subscribe(
+      (res) => {
+        console.log(res);
+        Swal.fire({
+          icon: 'success',
+          title: 'Congrats.',
+          text: "Thanks For Register",
+        });
+        this.router.navigate(['/signin']);
+      },
+      (err) => {
+        if (err)
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: err.error,
+          });
+      }
+    );
   }
 }

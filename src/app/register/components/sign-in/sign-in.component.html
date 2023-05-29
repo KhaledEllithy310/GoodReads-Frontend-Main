@@ -1,15 +1,15 @@
-<form #loginForm="ngForm" (ngSubmit)="submitLoginForm(loginForm)">
+<form class="p-4" #loginForm="ngForm">
   <h3>Login Here</h3>
   <div class="mb-3">
     <label for="title" class="form-label">Email Address</label>
     <input
-      type="text"
+      type="email"
       class=""
       id="title"
       aria-describedby="titleHelp"
       name="movieName"
       #loginEmail="ngModel"
-      ngModel
+      [(ngModel)]="email"
       required
       pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
     />
@@ -18,10 +18,10 @@
       class="form-text text-danger"
       *ngIf="loginEmail.touched && loginEmail.invalid"
     >
-      <span *ngIf="loginEmail?.errors?.['required']">
+      <span class="text-danger" *ngIf="loginEmail?.errors?.['required']">
         This field is required
       </span>
-      <span *ngIf="loginEmail?.errors?.['pattern']">
+      <span  class="text-danger" *ngIf="loginEmail?.errors?.['pattern']">
         please enter email as "test@gmail.com"
       </span>
     </div>
@@ -35,19 +35,20 @@
       aria-describedby="overviewHelp"
       rows="5"
       name="Password"
-      ngModel
+      [(ngModel)]="password"
       #Password="ngModel"
       required
-      minlength="10"
+      minlength="8"
     />
     <div
       class="form-text text-danger"
       *ngIf="Password.touched && Password.invalid"
     >
-      <span *ngIf="Password.errors?.['required']">This field is required</span>
-      <span *ngIf="Password.errors?.['minlength']">min length is 10</span>
+      <span  class="text-danger" *ngIf="Password.errors?.['required']">This field is required</span>
+      <span  class="text-danger" *ngIf="Password.errors?.['minlength']">min length is 10</span>
     </div>
-    <p>Don’t have account ? <a routerLink="/Register">Register</a></p>
   </div>
-  <button type="submit" class="" [disabled]="loginForm.invalid">log in</button>
+  <button type="submit" class="" (click)="submitLoginForm()" [disabled]="loginForm.invalid">log in</button>
+  <p class="text-center mt-3 mb-3">Don’t have account ? <a routerLink="/signup">Register</a></p>
+
 </form>
