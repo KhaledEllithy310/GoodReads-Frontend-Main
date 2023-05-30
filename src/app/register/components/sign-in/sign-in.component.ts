@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Userdata } from 'src/app/interfaces/userdata';
+import { GetdataService } from 'src/app/services/getdata.service';
+import { TokenserviceService } from 'src/app/services/tokenservice.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,23 +14,19 @@ import Swal from 'sweetalert2';
 export class SignInComponent {
   password: any;
   email: any;
-  constructor(private http: HttpClient, private router: Router) {}
+  respons!:Userdata;
+  constructor(private http: HttpClient, private router: Router,private token: TokenserviceService) {}
   submitLoginForm() {
-    // API implement.
     this.http
       .post('http://localhost:8080/login', {
         email: this.email,
         password: this.password,
       })
       .subscribe(
-        (res) => {
-          console.log(res);
-          // Swal.fire({
-          //   icon: 'success',
-          //   title: 'Congrats.',
-          //   text: 'Thanks For Register',
-          // });
-          this.router.navigate(['/']);
+         (res:any) => {this.respons=res,
+
+          this.token.setID(this.respons._id),
+          window.location.href='';
         },
         (err) => {
           if (err)

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { SignInComponent } from "./register/components/sign-in/sign-in.component";
 import { SignUpComponent } from "./register/components/sign-up/sign-up.component";
 import { NotFoundPageComponent } from "./shared/components/not-found-page/not-found-page.component";
+import { UserprofileComponent } from "./userprofile/userprofile.component";
 
 const routes: Routes = [
   {
@@ -12,6 +13,9 @@ const routes: Routes = [
   {
     path: "signup",
     component: SignUpComponent,
+  },{
+    path: "profile",
+    component: UserprofileComponent,
   },
   {
     path: "**",

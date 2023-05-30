@@ -10,18 +10,20 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SignInComponent } from './register/components/sign-in/sign-in.component';
 import { SignUpComponent } from './register/components/sign-up/sign-up.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { UserprofileComponent } from './userprofile/userprofile.component';
+
 
 
 @NgModule({
-  declarations: [AppComponent, SignInComponent, SignUpComponent],
+  declarations: [AppComponent, SignInComponent, SignUpComponent, UserprofileComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    // RegisterModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent],

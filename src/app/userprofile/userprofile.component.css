@@ -1,0 +1,13 @@
+.rounded-circle{
+  display: block;
+  width: 100px;
+  height: 100px;
+margin: auto;
+}
+.usrname{
+  text-align: center;
+  display: block;
+  width: auto;
+  margin: auto;
+  font-weight: bolder;
+}

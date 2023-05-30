@@ -3,6 +3,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { GetdataService } from 'src/app/services/getdata.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -22,7 +23,8 @@ export class SignUpComponent {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private flag: GetdataService
   ) {
     // this.passValue = this.registerForm.controls['Password'].value;
     // this.confirmPassValue = this.registerForm.controls['ConfirmPassword'].value;
