@@ -1,0 +1,227 @@
+<!-- <app-admin-navbar></app-admin-navbar> -->
+
+
+
+<div class="container good">
+  <div
+    class="btn__gen mt-3 btn__primary"
+    data-bs-toggle="modal"
+    data-bs-target="#addAuthor"
+  >
+    Add
+  </div>
+  <table
+    class="table table-secondary table-striped table-hover table-bordered text-center mt-3"
+  >
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">photo</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Date Of Birth</th>
+        <th scope="col">ACTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let author of authors; let i = index" id="cate{{ i }}">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>
+          <img
+            src="http://localhost:8080/{{
+              author?.avatar.replace('assets\\', '')
+            }}"
+            alt=""
+          />
+        </td>
+        <td>{{ author.first_name }}</td>
+        <td>{{ author.last_name }}</td>
+        <td>{{ author.dateOfBirth }}</td>
+        <td>
+          <div
+            class="btn btn__gen btn-danger btn_actions"
+            (click)="deleteAuthor(i)"
+          >
+            Delete
+          </div>
+          <!-- Button modal for update -->
+          <div
+            class="btn btn__gen btn-warning btn_actions"
+            data-bs-toggle="modal"
+            data-bs-target="#updateAuthor"
+            (click)="getIdAuthor(author._id)"
+          >
+            Update
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal for Add Author -->
+  <div
+    class="modal fade"
+    id="addAuthor"
+    tabindex="-1"
+    aria-labelledby="addAuthor"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog bgGreyLight_1">
+      <div class="modal-content bgGreyLight_1">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Author</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <form #authorData="ngForm" enctype="multipart/form-data">
+          <div class="modal-body bgGreyLight_1 vertical_align_cente">
+            <div class="mb-2">
+              <!-- <label for="" class="px-2">First Name</label> -->
+              <input
+                type="text"
+                class="input__form"
+                [(ngModel)]="first_name"
+                name="first_name"
+                placeholder="First Name"
+              />
+            </div>
+            <div class="mb-2">
+              <input
+                type="text"
+                class="input__form"
+                [(ngModel)]="last_name"
+                name="last_name"
+                placeholder="Last Name"
+              />
+            </div>
+            <div class="mb-2">
+              <label for="" class="px-2">Date Of Birth</label>
+              <input
+                type="date"
+                placeholder="Date Of Birth"
+                class="input__form"
+                [(ngModel)]="dateOfBirth"
+                name="dateOfBirth"
+              />
+            </div>
+            <div class="mb-2 d-f">
+              <label for="" class="px-2">Upload Image</label>
+              <input
+                #addfileInput
+                type="file"
+                class="input__form"
+                ngModel
+                name="avatar"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn__gen btn__secondary btn_actions_form"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="submit"
+              class="btn__gen btn__primary btn_actions_form"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              (click)="createAuthor()"
+            >
+              Add Author
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for update Author -->
+  <div
+    class="modal fade"
+    id="updateAuthor"
+    tabindex="-1"
+    aria-labelledby="updateAuthor"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog bgGreyLight_1">
+      <div class="modal-content bgGreyLight_1">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Update Author</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <form #authorData="ngForm" enctype="multipart/form-data">
+          <div class="modal-body bgGreyLight_1 vertical_align_center">
+            <div class="mb-2">
+              <input
+                type="text"
+                class="input__form"
+                [(ngModel)]="first_name_updated"
+                name="first_name"
+                placeholder="First Name"
+              />
+            </div>
+            <div class="mb-2">
+              <input
+                type="text"
+                class="input__form"
+                [(ngModel)]="last_name_updated"
+                name="last_name"
+                placeholder="Last Name"
+              />
+            </div>
+            <div class="mb-2">
+              <label for="" class="px-2">Date Of Birth</label>
+              <input
+                type="date"
+                placeholder="Date Of Birth"
+                class="input__form"
+                [(ngModel)]="dateOfBirth_updated"
+                name="dateOfBirth_updated"
+              />
+            </div>
+            <div class="mb-2">
+              <label for="" class="px-2">Upload Image</label>
+              <input
+                #updatefileInput
+                type="file"
+                class="input__form"
+                ngModel
+                name="avatar_updated"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn__gen btn__secondary btn_actions_form"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="submit"
+              class="btn__gen btn__primary btn_actions_form"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              (click)="updateAuthor(idAuthor)"
+            >
+              Update Author
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
