@@ -1,1 +1,146 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Sawarabi Gothic', sans-serif;
+}
+
+body {
+  background-color: #e4ebf5 !important;
+  /* background-color: red !important; */
+  font-family: 'Sawarabi Gothic', sans-serif;
+}
+
+.bgGreyLight_1 {
+  background-color: #e4ebf5 !important;
+  /* border: 0.5px solid #9baacf !important; */
+  border-radius: 6px !important;
+}
+
+.good .btn__gen {
+  width: 10rem;
+  height: 3rem;
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 1rem;
+  box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #ffffff;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin: 0;
+  font-family: 'Sawarabi Gothic', sans-serif;
+  border: none;
+}
+
+.btn_container {
+  width: 27rem;
+}
+.good .btn_actions {
+  width: 10rem;
+  height: 3rem;
+  display: inline-block;
+  margin-inline: 20px;
+}
+
+.good .btn_actions_form {
+  /* width: 8rem; */
+  height: 3rem;
+  display: inline-block;
+  margin-inline: 10px;
+  /* text-align: right; */
+}
+.good .btn__primary,
+input[type='file']::file-selector-button {
+  background-color: #6d5dfc !important;
+  box-shadow: inset 0.2rem 0.2rem 1rem #8abdff,
+    inset -0.2rem -0.2rem 1rem #5b0eeb, 0.3rem 0.3rem 0.6rem #c8d0e7,
+    -0.2rem -0.2rem 0.5rem #ffffff;
+  color: #e4ebf5e1;
+  box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #ffffff;
+}
+
+.good .btn__primary:hover,
+input[type='file']::file-selector-button:hover {
+  color: #ffffff;
+}
+
+.good .btn__primary:active,
+input[type='file']::file-selector-button:active {
+  /* shadow */
+  box-shadow: inset 0.2rem 0.2rem 1rem #5b0eeb,
+    inset -0.2rem -0.2rem 1rem #8abdff;
+}
+
+.good .btn__secondary {
+  color: #9baacf;
+}
+
+.good .btn__secondary:active {
+  /* inner shadow */
+  box-shadow: inset 0.2rem 0.2rem 0.5rem #c8d0e7,
+    inset -0.2rem -0.2rem 0.5rem #ffffff;
+  border: none;
+}
+
+.good .btn__secondary:hover {
+  color: #6d5dfc;
+}
+
+.input__form {
+  /* margin-left: 10px; */
+  width: 21rem;
+  width: 100%;
+  /* height: 3rem; */
+  padding: 0.5rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.4rem;
+  padding-left: 1.4rem;
+  box-shadow: inset 0.2rem 0.2rem 0.5rem #c8d0e7,
+    inset -0.2rem -0.2rem 0.5rem #ffffff;
+  background: none;
+  font-family: inherit;
+  color: #9baacf;
+  margin: 10px 0;
+  /* background-color: red; */
+}
+
+.input__form:focus {
+  outline: none;
+  box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #ffffff;
+}
+
+input::placeholder {
+  font-family: 'Sawarabi Gothic', sans-serif;
+  font-size: 18px;
+  color: #9baacf;
+}
+/* h1.modal-title {
+  font-family: 'Sawarabi Gothic', sans-serif;
+} */
+
+input[type='file']::file-selector-button {
+  margin-right: 20px;
+  vertical-align: middle;
+  /* line-height: 50px; */
+
+  border: none;
+  /* background: #084cdf; */
+  /* padding: 10px 20px; */
+  border-radius: 10px;
+  /* color: #fff; */
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+  /* margin: 10px; */
+}
+
+input[type='file']::file-selector-button:hover {
+  background: #0d45a5;
+}
