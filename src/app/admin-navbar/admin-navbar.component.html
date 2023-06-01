@@ -1,0 +1,32 @@
+
+<div id="viewport">
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <header>
+      <a href="#">BookStore</a>
+    </header>
+    <ul class="nav">
+      <li>
+        <a
+          routerLink="categories"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Categories
+        </a>
+      </li>
+      <li>
+        <a routerLink="authors" routerLinkActive="active"> Authors </a>
+      </li>
+      <li>
+        <a routerLink="books" routerLinkActive="active"> Books </a>
+      </li>
+    </ul>
+  </div>
+  <!-- Content -->
+  <div id="content">
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
