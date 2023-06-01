@@ -19,6 +19,7 @@ import { AdminBookComponent } from './admin-book/admin-book.component';
 import { AdminAuthorComponent } from './admin-author/admin-author.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { HeaderpageComponent } from './headerpage/headerpage.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     AdminAuthorComponent,
     AdminBookComponent,
     NotFoundPageComponent,
-    AdminNavbarComponent,AdminHomeComponent
+    AdminNavbarComponent,AdminHomeComponent, HeaderpageComponent
   ],
   imports: [
     BrowserModule,
