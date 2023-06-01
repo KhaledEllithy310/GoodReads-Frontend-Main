@@ -15,6 +15,8 @@ export class SignInComponent {
   password: any;
   email: any;
   respons!:Userdata;
+  sessionData:any=[];
+  data:any;
   constructor(private http: HttpClient, private router: Router,private token: TokenserviceService) {}
   submitLoginForm() {
     this.http
@@ -25,7 +27,13 @@ export class SignInComponent {
       .subscribe(
          (res:any) => {this.respons=res,
 
-          this.token.setID(this.respons._id),
+          // this.token.setID(this.respons._id),
+           this.data={
+            token:this.respons.token,
+            id:this.respons._id,
+           }
+           this.sessionData.push(this.data)
+          this.token.storeData(this.sessionData);
           window.location.href='';
         },
         (err) => {

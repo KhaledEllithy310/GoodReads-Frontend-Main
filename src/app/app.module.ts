@@ -11,6 +11,7 @@ import { SignInComponent } from './register/components/sign-in/sign-in.component
 import { SignUpComponent } from './register/components/sign-up/sign-up.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UserprofileComponent } from './userprofile/userprofile.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -23,7 +24,8 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],

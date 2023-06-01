@@ -1,13 +1,36 @@
-.rounded-circle{
+.rounded-circle {
   display: block;
   width: 100px;
   height: 100px;
-margin: auto;
+  margin: auto;
 }
-.usrname{
+.usrname {
   text-align: center;
   display: block;
   width: auto;
   margin: auto;
   font-weight: bolder;
+}
+.cover {
+  width: 50px;
+}
+ngb-rating{
+  font-size: 25px;
+  color: darkorange;
+}
+.info{
+  height: 90vh auto;
+}
+p{
+  font-size: 12px;
+  color: rgb(159, 160, 160) ;
+}
+.edit{
+  position: absolute;
+  font-size: 30px;
+  top: 82px;
+  left: 30;
+}
+td{
+  vertical-align: middle;
 }

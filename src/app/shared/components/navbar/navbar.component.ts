@@ -14,19 +14,19 @@ import { RouterModule } from '@angular/router';
 })
 export class NavbarComponent {
   isLoggedIn: any;
-  respons!: Userdata;
+  respons!: any;
   constructor(
     private token: TokenserviceService,
     private router: Router,
     private http: GetdataService
   ) {}
   ngOnInit() {
-    this.isLoggedIn = this.token.getId();
+    this.isLoggedIn = this.token.getStoredData();
     this.http
-      .getUserData(this.isLoggedIn)
+      .getUserData(this.isLoggedIn[0].id)
       .subscribe((res: any) => (this.respons = res));
   }
   logOut() {
-    this.token.removeID();
+    this.token.removeStoredData();
   }
 }

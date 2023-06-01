@@ -10,7 +10,10 @@ export class GetdataService {
   getUserData(id:string){
     return this.http.get(`http://localhost:8080/users/${id}`)
   }
-  getDetails(id:string){
-    return this.http.get(`https://dummyjson.com/products/${id}`)
+  getUserBookData(id:string){
+    return this.http.get(`http://localhost:8080/userbooks/${id}`)
+  }
+  getUserRate(bId:string,uId:string){
+    return this.http.get(`http://localhost:8080/rates/${bId}/${uId}`)
   }
 }

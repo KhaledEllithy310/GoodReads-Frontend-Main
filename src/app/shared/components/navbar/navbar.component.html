@@ -30,7 +30,7 @@
         <li class="nav-item">
           <a class="nav-link" href="signup">Sign Up</a>
       </ul>
-      <ul class="navbar-nav" [ngClass]="{'visually-hidden': isLoggedIn===null}">
+      <ul class="navbar-nav" [ngClass]="{'visually-hidden': isLoggedIn==null}">
         <li class="nav-item mx-3">
           <a class="nav-link log" href="profile">
             <img src="http://localhost:8080/{{respons.avatar.replace('assets\\', '')}}" >
