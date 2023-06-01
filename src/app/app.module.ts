@@ -3,29 +3,45 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedModule } from './shared/shared.module';
-import { RegisterModule } from './register/register.module';
+
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { SignInComponent } from './register/components/sign-in/sign-in.component';
-import { SignUpComponent } from './register/components/sign-up/sign-up.component';
+
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { AdminCategoryComponent } from './admin-category/admin-category.component';
+import { AdminAuthorComponent } from './admin-author/admin-author.component';
+import { AdminBookComponent } from './admin-book/admin-book.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, SignInComponent, SignUpComponent, UserprofileComponent],
+  declarations: [
+    AppComponent,
+    UserprofileComponent,
+    SignInComponent,
+    SignUpComponent,
+    NavbarComponent,
+    AdminCategoryComponent,
+    AdminAuthorComponent,
+    AdminBookComponent,
+    AdminHomeComponent,
+    NotFoundPageComponent,
+    AdminNavbarComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
     RouterModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

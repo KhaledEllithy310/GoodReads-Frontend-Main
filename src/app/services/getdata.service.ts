@@ -16,4 +16,19 @@ export class GetdataService {
   getUserRate(bId:string,uId:string){
     return this.http.get(`http://localhost:8080/rates/${bId}/${uId}`)
   }
+
+  //DISPLAY ALL CATEGORIES
+  getAllCategory() {
+    return this.http.get('http://localhost:8080/category/');
+  }
+
+  //DISPLAY ALL AUTHORS
+  getAllAuthor() {
+    return this.http.get('http://localhost:8080/Author/');
+  }
+
+  //DISPLAY ALL BOOKS
+  getAllBook() {
+    return this.http.get('http://localhost:8080/Books/');
+  }
 }

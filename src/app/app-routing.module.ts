@@ -1,24 +1,47 @@
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
-import { SignInComponent } from "./register/components/sign-in/sign-in.component";
-import { SignUpComponent } from "./register/components/sign-up/sign-up.component";
-import { NotFoundPageComponent } from "./shared/components/not-found-page/not-found-page.component";
-import { UserprofileComponent } from "./userprofile/userprofile.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { UserprofileComponent } from './userprofile/userprofile.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AdminCategoryComponent } from './admin-category/admin-category.component';
+import { AdminAuthorComponent } from './admin-author/admin-author.component';
+import { AdminBookComponent } from './admin-book/admin-book.component';
 
 const routes: Routes = [
   {
-    path: "signin",
+    path: 'signin',
     component: SignInComponent,
   },
   {
-    path: "signup",
+    path: 'signup',
     component: SignUpComponent,
-  },{
-    path: "profile",
+  },
+  {
+    path: 'profile',
     component: UserprofileComponent,
   },
   {
-    path: "**",
+    path: 'admin',
+    component: AdminHomeComponent,
+    children: [
+      {
+        path: 'categories',
+        component: AdminCategoryComponent,
+      },
+      {
+        path: 'authors',
+        component: AdminAuthorComponent,
+      },
+      {
+        path: 'books',
+        component: AdminBookComponent,
+      },
+    ],
+  },
+  {
+    path: '**',
     component: NotFoundPageComponent,
   },
 ];
