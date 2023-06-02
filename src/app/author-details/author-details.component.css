@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+header {
+    background-color: #F0F0F2;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.row {
+    justify-content: space-between;
+}
+
+header .contant {
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    margin-left: 40px;
+    flex-direction: column;
+    animation-name: contentaction;
+    animation-duration: .8s;
+    color: #212025;
+}
+
+/* ==============animation of contant code============== */
+
+@keyframes contentaction {
+    0% {
+        transform: translateX(-110%);
+        -webkit-transform: translateX(-110%);
+        -moz-transform: translateX(-110%);
+        -ms-transform: translateX(-110%);
+        -o-transform: translateX(-110%);
+    }
+    100% {
+        transform: translateX(0%);
+        -webkit-transform: translateX(0%);
+        -moz-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        -o-transform: translateX(0%);
+    }
+}
+
+header .contant h1 {
+    color: #0b1c39;
+    font-size: 96px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 26px;
+}
+
+header .contant p {
+    font-size: 25px;
+    line-height: 1.6;
+    font-weight: 400;
+    margin-bottom: 39px;
+    color: #212025;
+    margin-top: 60px;
+    padding-right: 50px;
+}
+.contant a{
+    font-size: 35px;
+
+}
+/* ==============animation of image code============== */
+
+header .img-header {
+    width: 30%;
+}
+
+header .img-header img {
+    width: 100%;
+    animation-name: imgaction;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes imgaction {
+    0% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+    }
+}
+.checked {
+    color: orange;
+}
+.reve{
+    margin-left: 60px;
+}
+
+.drop a{
+font-size: 25px;
+margin-top: 50px;
+
+}
+.contant{
+     margin-top: 30px;
+    margin-left: 40px;
+}
+.contant p{
+    font-size: 35px;
+    margin-top: 50px;
+}
+.review{
+    border: 1px solid #333;
+}
+.review .img-header{
+    width: 200px;
+    height: 200px;
+    ;
+}
+.review .img-header img{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}

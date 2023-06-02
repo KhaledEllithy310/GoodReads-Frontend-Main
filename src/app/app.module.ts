@@ -28,6 +28,7 @@ import { BookListComponent } from './book-list/book-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthorListComponent } from './author-list/author-list.component';
 import { AuthorCardComponent } from './author-card/author-card.component';
+import { AuthorDetailsComponent } from './author-details/author-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,7 @@ import { AuthorCardComponent } from './author-card/author-card.component';
     AdminAuthorComponent,
     AdminBookComponent,
     NotFoundPageComponent,
-    AdminNavbarComponent,AdminHomeComponent, HeaderpageComponent, BookDetailsComponent, BookCardComponent, BookListComponent, AuthorListComponent, AuthorCardComponent
+    AdminNavbarComponent,AdminHomeComponent, HeaderpageComponent, BookDetailsComponent, BookCardComponent, BookListComponent, AuthorListComponent, AuthorCardComponent, AuthorDetailsComponent
   ],
   imports: [
     BrowserModule,
