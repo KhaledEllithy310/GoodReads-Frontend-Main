@@ -29,7 +29,7 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="#">Term & Condtions</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" [ngClass]="{ 'visually-hidden': respons?.role != true }">
           <a class="nav-link" routerLink="admin">Admin Panel</a>
         </li>
       </ul>
@@ -54,7 +54,7 @@
 
       <ul
         class="navbar-nav"
-        [ngClass]="{ 'visually-hidden': isLoggedIn != null }"
+        [ngClass]="{ 'visually-hidden': isLoggedIn!=null }"
       >
         <li class="nav-item">
           <a class="nav-link" routerLink="signin">Sign In</a>
@@ -66,7 +66,7 @@
 
       <ul
         class="navbar-nav"
-        [ngClass]="{ 'visually-hidden': isLoggedIn == null }"
+        [ngClass]="{ 'visually-hidden': isLoggedIn==null }"
       >
         <li class="nav-item mx-3">
           <a class="nav-link log" href="profile">

@@ -15,7 +15,7 @@ export class AddService {
 
   //ADD Author
   createAuthor(data: any) {
-    return this.http.post('http://localhost:8080/Author/', data);
+    return this.http.post('http://localhost:8080/Authors/', data);
   }
 
   //ADD Book

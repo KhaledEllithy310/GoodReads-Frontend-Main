@@ -3,3 +3,9 @@ tbody img {
   height: 50px;
   border-radius: 50%;
 }
+td{
+  vertical-align: middle;
+}
+th{
+  vertical-align: middle;
+}
