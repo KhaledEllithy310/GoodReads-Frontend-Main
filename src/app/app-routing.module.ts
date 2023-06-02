@@ -1,3 +1,9 @@
+import { FooterComponent } from './footer/footer.component';
+import { AuthorDetailsComponent } from './author-details/author-details.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
+import { HeaderpageComponent } from './headerpage/headerpage.component';
+import { AuthorListComponent } from './author-list/author-list.component';
+import { BookListComponent } from './book-list/book-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserprofileComponent } from './userprofile/userprofile.component';
@@ -39,7 +45,32 @@ const routes: Routes = [
         path: 'books',
         component: AdminBookComponent,
       },
+
     ],
+  },
+  {
+    path: 'book-list',
+    component: BookListComponent
+  },
+  {
+    path: 'author-list',
+    component: AuthorListComponent
+  },
+  {
+    path:'headerpage',
+    component: HeaderpageComponent
+  },
+  {
+    path: 'book-details',
+    component: BookDetailsComponent
+  },
+  {
+    path: 'author-details',
+    component: AuthorDetailsComponent
+  },
+  {
+    path: 'footer',
+    component: FooterComponent
   },
   {
     path: '**',
