@@ -20,6 +20,12 @@ import { AdminAuthorComponent } from './admin-author/admin-author.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { HeaderpageComponent } from './headerpage/headerpage.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
+import { BookCardComponent } from './book-card/book-card.component';
+import { BookListComponent } from './book-list/book-list.component';
+
+
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +37,7 @@ import { HeaderpageComponent } from './headerpage/headerpage.component';
     AdminAuthorComponent,
     AdminBookComponent,
     NotFoundPageComponent,
-    AdminNavbarComponent,AdminHomeComponent, HeaderpageComponent
+    AdminNavbarComponent,AdminHomeComponent, HeaderpageComponent, BookDetailsComponent, BookCardComponent, BookListComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +47,7 @@ import { HeaderpageComponent } from './headerpage/headerpage.component';
     HttpClientModule,
     RouterModule,
     NgbModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent],
