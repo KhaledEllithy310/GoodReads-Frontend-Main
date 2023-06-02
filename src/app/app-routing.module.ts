@@ -49,29 +49,36 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'book-list',
-    component: BookListComponent
-  },
-  {
-    path: 'author-list',
-    component: AuthorListComponent
-  },
-  {
     path:'headerpage',
-    component: HeaderpageComponent
-  },
-  {
-    path: 'book-details',
-    component: BookDetailsComponent
-  },
-  {
-    path: 'author-details',
-    component: AuthorDetailsComponent
-  },
-  {
-    path: 'footer',
-    component: FooterComponent
-  },
+    component: HeaderpageComponent,
+    children:[
+      {
+        path: 'book-list',
+        component: BookListComponent
+      },
+      {
+        path: 'author-list',
+        component: AuthorListComponent
+      },
+      {
+        path:'headerpage',
+        component: HeaderpageComponent
+      },
+      {
+        path: 'book-details',
+        component: BookDetailsComponent
+      },
+      {
+        path: 'author-details',
+        component: AuthorDetailsComponent
+      },
+      {
+        path: 'footer',
+        component: FooterComponent
+      },
+   
+    ]
+  } ,
   {
     path: '**',
     component: NotFoundPageComponent,
