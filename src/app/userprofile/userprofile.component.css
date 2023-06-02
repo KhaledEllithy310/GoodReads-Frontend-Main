@@ -34,3 +34,6 @@ p{
 td{
   vertical-align: middle;
 }
+i{
+  cursor: pointer;
+}
