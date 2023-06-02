@@ -10,9 +10,9 @@ import { Book } from './../interfaces/book';
 })
 export class BookListComponent {
 
-  books : Book[] = [] 
+  books : Book[] = []
   constructor(public router: Router,private GetdataService :GetdataService ){}
-  redirectDetails(id:number){
+  redirectDetails(id:any){
     this.router.navigate(['book-details',id])
   }
 
@@ -23,9 +23,9 @@ export class BookListComponent {
     this.GetdataService .getAllBook().subscribe((res:any)=>{
     this.books = res.response;
     this.totalLength =res.response.length;
-      
+
     })
-  
+
   }
   ngOnInit(){
     this.getAllBook()

@@ -1,4 +1,4 @@
-*,
+/* *,
 *:before,
 *:after {
   padding: 0;
@@ -7,7 +7,6 @@
 }
 
 form {
-  /* height: ; */
   width: 400px;
   background-color: rgb(0 0 0 / 12%);
   position: absolute;
@@ -68,4 +67,4 @@ form button {
 }
 .file{
   height: auto;
-}
+} */

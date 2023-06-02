@@ -2,6 +2,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Sawarabi+Gothic&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +23,7 @@ body {
   border-radius: 6px !important;
 }
 
-.good .btn__gen {
+.btn__gen {
   width: 10rem;
   height: 3rem;
   font-weight: 600;
@@ -42,21 +44,21 @@ body {
 .btn_container {
   width: 27rem;
 }
-.good .btn_actions {
+.btn_actions {
   width: 10rem;
   height: 3rem;
   display: inline-block;
   margin-inline: 20px;
 }
 
-.good .btn_actions_form {
+.btn_actions_form {
   /* width: 8rem; */
   height: 3rem;
   display: inline-block;
   margin-inline: 10px;
   /* text-align: right; */
 }
-.good .btn__primary,
+.btn__primary,
 input[type='file']::file-selector-button {
   background-color: #6d5dfc !important;
   box-shadow: inset 0.2rem 0.2rem 1rem #8abdff,
@@ -66,30 +68,30 @@ input[type='file']::file-selector-button {
   box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #ffffff;
 }
 
-.good .btn__primary:hover,
+.btn__primary:hover,
 input[type='file']::file-selector-button:hover {
   color: #ffffff;
 }
 
-.good .btn__primary:active,
+.btn__primary:active,
 input[type='file']::file-selector-button:active {
   /* shadow */
   box-shadow: inset 0.2rem 0.2rem 1rem #5b0eeb,
     inset -0.2rem -0.2rem 1rem #8abdff;
 }
 
-.good .btn__secondary {
+.btn__secondary {
   color: #9baacf;
 }
 
-.good .btn__secondary:active {
+.btn__secondary:active {
   /* inner shadow */
   box-shadow: inset 0.2rem 0.2rem 0.5rem #c8d0e7,
     inset -0.2rem -0.2rem 0.5rem #ffffff;
   border: none;
 }
 
-.good .btn__secondary:hover {
+.btn__secondary:hover {
   color: #6d5dfc;
 }
 
@@ -143,4 +145,22 @@ input[type='file']::file-selector-button {
 
 input[type='file']::file-selector-button:hover {
   background: #0d45a5;
+}
+
+.input_container {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px !important;
+}
+/* .input_container input {
+  width: 80%;
+} */
+.input_container label {
+  width: 190px;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Domine', serif;
+  /* font-family: 'Sawarabi Gothic', sans-serif; */
 }
