@@ -7,5 +7,7 @@
  }
 
   .my-pagination::ng-deep .ngx-pagination .current {
-    background: red;
+    background: #1a065f;
+    
+    border-radius: 50%;
    };

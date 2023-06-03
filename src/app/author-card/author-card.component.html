@@ -1,9 +1,24 @@
-<div class="cards">
-  <div class="about-img">
-    <img [src]="card.image" alt="">
+<div class="boxs">
+  <div class="data">
+    <!-- <img src="chttp://localhost:8080/{{card.avatar.replace('assets/', '')}}" alt="" /> -->
+    <img [src]="card.avatar" alt="">
+    <div class="social">
+      <a href="#">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="#">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="#">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
   </div>
-  <div class="titl-contact">
-    <h5> {{card.name}}</h5>
+  <div class="info">
+    <h3>{{card.name}}</h3>
+  
   </div>
-
 </div>

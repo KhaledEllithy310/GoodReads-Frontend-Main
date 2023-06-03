@@ -5,9 +5,10 @@
                 totalItems:totalLength
               }">
 
-         <app-bookcard [bookItem]="book" > </app-bookcard>  
+         <app-book-card [bookItem]="book" > </app-book-card>  
 
     </div>
     <pagination-controls  class="text-center my-pagination"(pageChange)="p = $event"></pagination-controls>
 </div>
+
 <app-author-list></app-author-list>

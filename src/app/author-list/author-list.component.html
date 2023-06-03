@@ -1,16 +1,17 @@
 
-
-<div class="container">
-
-  <div class="row">
-    <div class=" col-3 my-3 " *ngFor="let card of cards  "  > 
-        <app-autho-card [card]='card'></app-autho-card>
-    </div>
+<div class="team" id="team ">
+   
+  <div class="container">
+    <div class="box" *ngFor="let card of cards |
+      paginate: { itemsPerPage: itemsPerPage,
+        currentPage: p,
+        totalItems:totalLength
+      }" >
+      <app-author-card [card]='card'></app-author-card>
   </div>
+  </div>
+  <br><br>
+  <pagination-controls  class="text-center my-pagination"(pageChange)="p = $event"></pagination-controls>
 </div>
-  <app-footer></app-footer>
-  <!-- //pagination code -->
-  <!-- <div>
-      <pagination-controls (pageChange)="p=$event"></pagination-controls>
-   </div> -->
-   | <!--  paginate: {itemsPerPage:itemsPerPage,currentPage:p} -->
+<app-footer></app-footer>
+ 

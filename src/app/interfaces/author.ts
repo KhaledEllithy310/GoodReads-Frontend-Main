@@ -1,4 +1,4 @@
 export interface Author {
-    "image":string,
+    "avatar":string,
     "name" :string
 }
