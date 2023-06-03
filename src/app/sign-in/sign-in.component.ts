@@ -35,7 +35,7 @@ export class SignInComponent {
            }
            this.sessionData.push(this.data)
           this.token.storeData(this.sessionData);
-          window.location.href='';
+          this.router.navigate(['headerpage']);
         },
         (err) => {
           if (err)

@@ -37,8 +37,7 @@
 
       <div class="d-flex mx-3 cont">
         <select #select class="form-select form-select-sm" aria-label=".form-select-sm example">
-          <option selected disabled>select</option>
-          <option value="books">books</option>
+          <option value="books" selected>books</option>
           <option value="authors">authors</option>
         </select>
         <input #input id="search-input" type="text" placeholder="search ...." class="form-control search" aria-label="Text input with segmented dropdown button" (focus)="showResults = true" (blur)="showResults = false;input.value='';blur()" (keyup)="search(input.value,select.value)">
