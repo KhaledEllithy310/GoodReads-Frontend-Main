@@ -33,11 +33,11 @@ export class AdminGuard implements CanActivate {
         if (x.role === true && res2===true) {
           return true;
         } else {
-          this.router.navigate(['headerpage']);
+          window.location.href=('')
           return false;
         }
       } else {
-        this.router.navigate(['headerpage']);
+        window.location.href=('')
         return false;
       }
     } catch (error) {
