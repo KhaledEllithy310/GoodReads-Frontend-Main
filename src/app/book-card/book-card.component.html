@@ -2,13 +2,13 @@
 <div class="cards">
     <div class="face face1">
         <div class="content">
-            <img src="http://localhost:8080/{{bookItem.avatar.replace('assets/', '')}}"alt="" />
+            <img src="http://localhost:8080/{{bookItem.avatar.replace('assets\\', '')}}"alt="" />
             <h5> {{bookItem.title | uppercase}}</h5>
         </div>
     </div>
     <div class="face face2">
         <div class="content">
-            <p>{{bookItem.description}}</p>
+            <!-- <p>{{bookItem.description}}</p> -->
             <a  (click)="redirectDetails(bookItem.id)">Read More</a>
 
         </div>

@@ -8,12 +8,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./author-list.component.css']
 })
 export class AuthorListComponent {
+<<<<<<< HEAD
   cards : Author[] = []
 
+=======
+  cards !: any;
+
+  // cards :Author[] =[
+  //   {
+  //     avatar :'../../assets/images/pic-6.png',
+  //     name: 'authorName'
+  //    },
+  //    {
+  //      avatar :'../../assets/images/pic-2.png',
+  //      name : 'authorName'
+  //     },
+  //     {
+  //      avatar :'../../assets/images/pic-3.png',
+  //      name : 'authorName'
+  //     },
+  //     {
+  //      avatar :'../../assets/images/pic-4.png',
+  //      name : 'authorName'
+  //     },
+  // ]
+>>>>>>> 203986a279687601945fe2911e4d4930b5a92341
   constructor(public router: Router,private GetdataService :GetdataService ){}
   ngOnInit(){
-    this.  getAllAuthor(),
-    this.  getAllAuthorapi()
+    this.  getAllAuthor()
+    // this.  getAllAuthorapi()
   }
   redirectDetails(id:any){
     this.router.navigate(['products-dtails',id])
@@ -25,15 +48,31 @@ export class AuthorListComponent {
     this.GetdataService.getAllAuthor().subscribe((res:any)=>{
     this.cards = res;
     this.totalLength =res.length;
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> 203986a279687601945fe2911e4d4930b5a92341
     })
 
-  
-  }
-  getAllAuthorapi(){
-    this.GetdataService.getAllAuthor().subscribe((res: any) => {
-      console.log(res.response);
-    });
-  }
 
+  }
+<<<<<<< HEAD
+
+=======
+  // getAllAuthorapi(){
+  //   this.GetdataService.getAllAuthor().subscribe((res: any) => {
+  //     console.log(res.response);
+  //   });
+  // }
+  // pagination code
+  // p:number =1;
+  // itemsPerPage:number =8;
+  // totalAuthor:any;
+
+
+  // ngOnInit():void{
+
+  // }
+>>>>>>> 203986a279687601945fe2911e4d4930b5a92341
 }
