@@ -18,6 +18,15 @@ import { AdminGuard } from './guards/admin.guard';
 // import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 const routes: Routes = [
+  // {
+  //   path:"",
+  //   component:HeaderpageComponent
+  // }
+  // ,
+  {
+    path: 'book-details',
+    component: BookDetailsComponent
+  },
   {
     path: 'signin',
     component: SignInComponent,
@@ -52,39 +61,31 @@ const routes: Routes = [
         component: AdminBookComponent,
       },
 
-    ],
-  },
-  {
-    path:'headerpage',
-    component: HeaderpageComponent,
-    children:[
-      {
-        path: 'book-list',
-        component: BookListComponent
-      },
-      {
-        path: 'author-list',
-        component: AuthorListComponent
-      },
-      {
-        path:'headerpage',
-        component: HeaderpageComponent
-      },
-      {
-        path: 'author-details',
-        component: AuthorDetailsComponent
-      },
-      {
-        path: 'footer',
-        component: FooterComponent
-      },
-
     ]
-  } ,
-  {
-    path: '**',
-    component: NotFoundPageComponent,
   },
+  {
+  path:'',
+  component: HeaderpageComponent,
+  children:[
+    {
+      path: 'book-list',
+      component: BookListComponent
+    },
+    {
+      path: 'author-list',
+      component: AuthorListComponent
+    },
+    {
+      path: 'author-details',
+      component: AuthorDetailsComponent
+    },
+    {
+      path: 'footer',
+      component: FooterComponent
+    },
+
+  ]}
+ 
 ];
 
 @NgModule({

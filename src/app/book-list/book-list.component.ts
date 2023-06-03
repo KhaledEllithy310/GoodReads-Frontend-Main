@@ -12,15 +12,14 @@ export class BookListComponent {
 
   books : Book[] = []
   constructor(public router: Router,private GetdataService :GetdataService ){}
-  // redirectDetails(id:number){
-  //   // this.router.navigate(['book-details',id])
-  // }
-  redirectDetails(){
-    // this.router.navigate(['book-details',id])
+  ngOnInit(){
+    this.getAllBook(),
+    this.getAllBookapi()
   }
+ 
   totalLength:any;
   p:number =1;
-  itemsPerPage:number= 4
+  itemsPerPage:number= 8
   getAllBook(){
     this.GetdataService.getAllBook().subscribe((res:any)=>{
     this.books = res.response;
@@ -28,8 +27,13 @@ export class BookListComponent {
 
     })
 
+  
   }
-  ngOnInit(){
-    this.getAllBook()
+  getAllBookapi(){
+    this.GetdataService.getAllBook().subscribe((res: any) => {
+      console.log(res.response);
+    });
   }
+ 
+  
 }

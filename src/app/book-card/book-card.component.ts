@@ -13,9 +13,9 @@ export class BookCardComponent {
   @Output() emitFromChild = new EventEmitter()
   constructor(private router: Router){}
 
-  redirectDetails(id : number){
-    // this.router.navigate(['book-dtails',id])
+  redirectDetails(id : any){
+    this.router.navigate(['book-details'])
     console.log(id);
-    this.emitFromChild.emit(id)
+    // this.emitFromChild.emit(id)
 }
 }
