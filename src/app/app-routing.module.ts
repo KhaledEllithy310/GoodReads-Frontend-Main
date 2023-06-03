@@ -17,6 +17,11 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 // import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 const routes: Routes = [
+  // {
+  //   path:"",
+  //   component:HeaderpageComponent
+  // }
+  // ,
   {
     path: 'book-details',
     component: BookDetailsComponent
@@ -53,34 +58,28 @@ const routes: Routes = [
     ]
   },
   {
-    path:'headerpage',
-    component: HeaderpageComponent,
-  },
-  {
-    path: 'book-list',
-    component: BookListComponent
-  },
-  {
-    path: 'author-list',
-    component: AuthorListComponent
-  },
-  {
-    path:'headerpage',
-    component: HeaderpageComponent
-  },
+  path:'',
+  component: HeaderpageComponent,
+  children:[
+    {
+      path: 'book-list',
+      component: BookListComponent
+    },
+    {
+      path: 'author-list',
+      component: AuthorListComponent
+    },
+    {
+      path: 'author-details',
+      component: AuthorDetailsComponent
+    },
+    {
+      path: 'footer',
+      component: FooterComponent
+    },
 
-  {
-    path: 'author-details',
-    component: AuthorDetailsComponent
-  },
-  {
-    path: 'footer',
-    component: FooterComponent
-  },
-  {
-    path: '**',
-    component: NotFoundPageComponent,
-  },
+  ]}
+ 
 ];
 
 @NgModule({

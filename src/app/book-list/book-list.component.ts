@@ -16,9 +16,7 @@ export class BookListComponent {
     this.getAllBook(),
     this.getAllBookapi()
   }
-  redirectDetails(id:any){
-    this.router.navigate(['products-dtails',id])
-  }
+ 
   totalLength:any;
   p:number =1;
   itemsPerPage:number= 8
