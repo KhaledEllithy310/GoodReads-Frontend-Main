@@ -1,0 +1,11 @@
+tbody img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+td{
+  vertical-align: middle;
+}
+th{
+  vertical-align: middle;
+}

@@ -1,0 +1,9 @@
+export interface Book {
+
+    id: number;
+     title: string;
+     description :string;
+     avatar:string;
+     categoryId : {};
+     authorId :{};
+}

@@ -1,0 +1,261 @@
+<!-- <app-admin-navbar></app-admin-navbar> -->
+<div class="container good">
+  <div
+    class="btn__gen mt-3 btn__primary"
+    data-bs-toggle="modal"
+    data-bs-target="#addBook"
+  >
+    Add
+  </div>
+  <table
+    class="table table-secondary table-striped table-hover table-bordered text-center mt-3"
+  >
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">photo</th>
+        <th scope="col">Name</th>
+        <th scope="col">CategoryName</th>
+        <th scope="col">AuthorName</th>
+        <th scope="col">ACTIONS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of Books; let i = index" id="cate{{ i }}">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>
+          <img
+            src="http://localhost:8080/{{
+              book?.avatar.replace('assets\\', '')
+            }}"
+            alt=""
+          />
+        </td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.categoryId.name }}</td>
+        <td>{{ book.authorId.first_name + book.authorId.last_name }}</td>
+        <td>
+          <div
+            class="btn btn__gen btn-danger btn_actions"
+            (click)="deleteBook(i)"
+          >
+            Delete
+          </div>
+          <!-- Button modal for update -->
+          <div
+            class="btn btn__gen btn-warning btn_actions"
+            data-bs-toggle="modal"
+            data-bs-target="#updateBook"
+            (click)="getIdBook(book._id)"
+          >
+            Update
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal for Add Book -->
+  <div
+    class="modal fade"
+    id="addBook"
+    tabindex="-1"
+    aria-labelledby="addBook"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog bgGreyLight_1">
+      <div class="modal-content bgGreyLight_1">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Book</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <form #authorData="ngForm" enctype="multipart/form-data">
+          <div class="modal-body bgGreyLight_1 vertical_align_center">
+            <div class="mb-2">
+              <input
+                type="text"
+                class="input__form"
+                [(ngModel)]="title"
+                name="title"
+                placeholder="Name"
+              />
+            </div>
+            <div class="mb-2">
+              <input
+                type="text"
+                class="input__form"
+                [(ngModel)]="description"
+                name="description"
+                placeholder="Description"
+              />
+            </div>
+            <div class="mb-2">
+              <label for="" class="px-2">Category Name</label>
+              <select
+                name="mycategoryId"
+                [(ngModel)]="categoryId"
+                class="input__form"
+              >
+                <option value=">Category Name" selected>Category Name</option>
+                <option
+                  *ngFor="let category of categories"
+                  value="{{ category._id }}"
+                >
+                  {{ category.name }}
+                </option>
+              </select>
+            </div>
+            <div class="mb-2">
+              <label for="" class="px-2">Author Name</label>
+              <select
+                name="myauthorId"
+                [(ngModel)]="authorId"
+                class="input__form"
+              >
+                <option value="Author Name" selected>Author Name</option>
+                <option *ngFor="let author of authors" value="{{ author._id }}">
+                  {{ author.first_name + " " + author.last_name }}
+                </option>
+              </select>
+            </div>
+            <div class="mb-2">
+              <label for="" class="px-2">Upload Image</label>
+              <input
+                #addfileInput
+                type="file"
+                class="input__form"
+                ngModel
+                name="avatar"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn__gen btn__secondary btn_actions_form"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="submit"
+              class="btn__gen btn__primary btn_actions_form"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              (click)="createBook()"
+            >
+              Add Book
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for update Book -->
+  <div
+    class="modal fade"
+    id="updateBook"
+    tabindex="-1"
+    aria-labelledby="updateBook"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog bgGreyLight_1">
+      <div class="modal-content bgGreyLight_1">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Book</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <form #authorData="ngForm" enctype="multipart/form-data">
+          <div class="modal-body bgGreyLight_1 vertical_align_center">
+            <div class="mb-2">
+              <input
+                type="text"
+                class="input__form"
+                [(ngModel)]="title_updated"
+                name="title_updated"
+                placeholder="Name"
+              />
+            </div>
+            <div class="mb-2">
+              <input
+                type="text"
+                class="input__form"
+                [(ngModel)]="description_updated"
+                name="description_updated"
+                placeholder="Description"
+              />
+            </div>
+            <div class="mb-2">
+              <label for="" class="px-2">Category Name</label>
+              <select
+                name="mycategoryId"
+                [(ngModel)]="categoryId_updated"
+                class="input__form"
+              >
+                <option value=">Category Name" selected disabled>Category Name</option>
+                <option
+                  *ngFor="let category of categories"
+                  value="{{ category._id }}"
+                >
+                  {{ category.name }}
+                </option>
+              </select>
+            </div>
+            <div class="mb-2">
+              <label for="" class="px-2">Author Name</label>
+              <select
+                name="myauthorId"
+                [(ngModel)]="authorId_updated"
+                class="input__form"
+              >
+                <option value="Author Name" selected disabled>Author Name</option>
+                <option *ngFor="let author of authors" value="{{ author._id }}">
+                  {{ author.first_name + " " + author.last_name }}
+                </option>
+              </select>
+            </div>
+            <div class="mb-2">
+              <label for="" class="px-2">Upload Image</label>
+              <input
+                #updatefileInput
+                type="file"
+                class="input__form"
+                ngModel
+                name="avatar_updated"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn__gen btn__secondary btn_actions_form"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="submit"
+              class="btn__gen btn__primary btn_actions_form"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              (click)="updateBook(idBook)"
+            >
+              Update Book
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
