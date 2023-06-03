@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { UserdataService } from './userdata.service';
 import { Userdata } from '../interfaces/userdata';
 import { TokenserviceService } from './tokenservice.service';
 import { Route } from '@angular/router';

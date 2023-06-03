@@ -1,6 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Userdata } from '../interfaces/userdata';
-import { UserdataService } from '../services/userdata.service';
 import { GetdataService } from '../services/getdata.service';
 import { TokenserviceService } from '../services/tokenservice.service';
 import { HttpClient } from '@angular/common/http';

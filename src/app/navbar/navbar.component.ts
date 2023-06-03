@@ -7,6 +7,7 @@ import { Userdata } from 'src/app/interfaces/userdata';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FlagService } from '../services/flag.service';
 
 @Component({
   selector: 'app-navbar',
@@ -20,30 +21,34 @@ export class NavbarComponent {
   showResults = false;
   searched: any;
   searchTerm!: string;
+  flagValue!: any;
   constructor(
     private token: TokenserviceService,
     private router: Router,
     private http: GetdataService,
-    private req: HttpClient
+    private req: HttpClient,
+    private flag: FlagService
   ) {}
   ngOnInit() {
     this.isLoggedIn = this.token.getStoredData();
-if(this.isLoggedIn!=null){    this.http
-      .getUserData(this.isLoggedIn[0].id)
-      .subscribe((res: any) => (this.respons = res));}
-
+    if (this.isLoggedIn != null) {
+      this.http
+        .getUserData(this.isLoggedIn[0].id)
+        .subscribe((res: any) => (this.respons = res));
+    }
   }
   logOut() {
+    this.flag.setFlag(0);
     this.token.removeStoredData();
   }
-  search(val: any,table: any) {
-    console.log(table,val);
+  search(val: any, table: any) {
+    console.log(table, val);
 
     this.req
       .get(`http://localhost:8080/${table}/${val}`)
       .subscribe((res: any) => (this.searched = res));
   }
-  blur(){
-    this.searched='';
+  blur() {
+    this.searched = '';
   }
 }
