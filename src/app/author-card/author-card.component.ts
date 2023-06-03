@@ -8,12 +8,14 @@ import { Router } from '@angular/router';
 })
 export class AuthorCardComponent {
 
-  @Input() authorItem !: Author;
+  @Input() card !: any;
   @Output() emitFromChild = new EventEmitter()
   constructor(private router: Router){}
   redirectDetails(id : any){
     this.router.navigate(['author-details'])
-    console.log(id);
+ 
+    console.log(this.card.avatar);
+    
     // this.emitFromChild.emit(id)
 }
 }
