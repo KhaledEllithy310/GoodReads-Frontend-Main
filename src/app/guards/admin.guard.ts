@@ -15,8 +15,6 @@ export class AdminGuard implements CanActivate {
   ) {}
 
   canActivate(): any {
-    let x;
-
     this.getData();
   }
   async getData(): Promise<any> {
@@ -25,9 +23,14 @@ export class AdminGuard implements CanActivate {
       let x: any;
       if (info != null) {
         let id = info[0].id;
+        let TOKEN = info[0].token;
+        const data ={
+          token : TOKEN
+        }
         const res = await this.req.getUserData(id).toPromise();
+        const res2 = await this.req.authData(data).toPromise();
         x = res;
-        if (x.role === true) {
+        if (x.role === true && res2===true) {
           return true;
         } else {
           this.router.navigate(['headerpage']);
