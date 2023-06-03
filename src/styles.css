@@ -152,7 +152,7 @@ input[type='file']::file-selector-button:hover {
   flex-flow: row nowrap;
   gap: 20px;
   align-items: center;
-  margin-bottom: 20px !important;
+  margin-bottom: 0px !important;
 }
 /* .input_container input {
   width: 80%;
@@ -163,4 +163,17 @@ input[type='file']::file-selector-button:hover {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-family: 'Domine', serif;
   /* font-family: 'Sawarabi Gothic', sans-serif; */
+}
+
+.error_form {
+  margin-left: 170px;
+  margin-bottom: 0px !important;
+  padding: 3px !important;
+}
+
+.title_form {
+  font-size: 50px;
+  font-family: 'Domine', serif;
+  font-weight: 600;
+  margin-bottom: 30px;
 }

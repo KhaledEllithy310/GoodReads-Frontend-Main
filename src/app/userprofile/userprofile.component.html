@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="info col-3 bg-dark pt-5 pb-5">
-      <i class="edit fa-solid fa-user-pen text-light"></i>
+      <i class="edit fa-solid fa-user-pen text-light" placement="bottom" ngbTooltip="Edit profile info" (click)="open(content)"></i>
       <img class="rounded-circle mb-4" src="http://localhost:8080/{{user.avatar.replace('assets\\', '')}}" alt="" srcset="">
       <label class="text-light usrname">{{user.firstName}} {{user.lastName}}</label>
       <p class="text-center">{{user.email}}</p>
@@ -191,4 +191,136 @@
     </div>
   </div>
   </div>
+
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">update info</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+    <form [formGroup]="registerForm" enctype="multipart/form-data" >
+      <div class="mb-3">
+        <label for="title" class="form-label">First Name</label>
+        <input
+
+          type="text"
+          class="form-control"
+          id="Name"
+          aria-describedby="titleHelp"
+          formControlName="firstName"
+          [(ngModel)]="firstName"
+        />
+        <div
+          id="titleHelp"
+          class="form-text text-danger"
+          *ngIf="
+            registerForm.controls['firstName'].touched &&
+            registerForm.controls['firstName'].invalid
+          "
+        >
+          <span  class="text-danger" *ngIf="registerForm.controls['firstName'].errors?.['required']">
+            This field is required
+          </span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="userName"
+          aria-describedby="titleHelp"
+          formControlName="lastName"
+          [(ngModel)]="lastName"
+        />
+        <div
+          id="titleHelp"
+          class="form-text text-danger"
+          *ngIf="
+            registerForm.controls['lastName'].touched &&
+            registerForm.controls['lastName'].invalid
+          "
+        >
+          <span  class="text-danger" *ngIf="registerForm.controls['lastName'].errors?.['required']">
+            This field is required
+          </span>
+          <span class="text-danger" *ngIf="registerForm.controls['lastName'].errors?.['pattern']">
+            don't let whitespace between letters
+          </span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Email Address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="title"
+          aria-describedby="titleHelp"
+          formControlName="email"
+          [(ngModel)]="email"
+
+        />
+        <div
+          id="titleHelp"
+          class="form-text text-danger"
+          *ngIf="
+            registerForm.controls['email'].touched &&
+            registerForm.controls['email'].invalid
+          "
+        >
+          <span  class="text-danger" *ngIf="registerForm.controls['email'].errors?.['required']">
+            This field is required
+          </span>
+          <span  class="text-danger" *ngIf="registerForm.controls['email'].errors?.['pattern']">
+            please enter email as "test@gmail.com"
+          </span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="title"
+          aria-describedby="titleHelp"
+          formControlName="password"
+          [(ngModel)]="password"
+        />
+        <div
+          class="form-text text-danger"
+          *ngIf="
+            registerForm.controls['password'].touched &&
+            registerForm.controls['password'].invalid
+          "
+        >
+          <span  class="text-danger" *ngIf="registerForm.controls['password'].errors?.['required']"
+            >This field is required</span
+          >
+          <span class="text-danger"  *ngIf="registerForm.controls['password'].errors?.['minlength']"
+            >min length is 8</span
+          >
+          <span class="text-danger"  *ngIf="registerForm.controls['password'].errors?.['pattern']">
+            password must be include 1 chracter of them[Aa1- *@%$#] as
+            "P@ssword1234"
+          </span>
+        </div>
+      </div>
+    <div>
+      <label for="title" class="form-label">Profile Avatar</label>
+      <div class="input-group">
+        <input type="file" class="form-control file p-1" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" (change)="handleFileInput($event)" #fileInput>
+      </div>
+    </div>
+      <!-- <button type="submit" class="" [disabled]="registerForm.invalid" (click)="updateInfo()">
+        save updates
+      </button> -->
+      <div class="modal-footer text-center">
+          <button type="submit" class="btn btn-success" [disabled]="registerForm.invalid" (click)="updateInfo()">
+        save updates
+      </button>
+    </div>
+    </form>
+  </div>
+
+  </ng-template>
 

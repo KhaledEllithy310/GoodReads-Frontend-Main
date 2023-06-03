@@ -24,7 +24,7 @@ export class GetdataService {
 
   //DISPLAY ALL AUTHORS
   getAllAuthor() {
-    return this.http.get('http://localhost:8080/Author/');
+    return this.http.get('http://localhost:8080/Authors/');
   }
 
   //DISPLAY ALL BOOKS

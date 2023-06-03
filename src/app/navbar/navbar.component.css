@@ -8,3 +8,60 @@ img{
 .fa-solid{
   font-size: 30px;
 }
+.form-select-sm{
+  width: 120px !important;
+}
+.cont{
+    border: 1px solid black;
+    border-radius: 7px;
+
+}
+select{
+  border: none;
+border-radius: 7px 0 0 7px;
+border-right: 1px solid black;;
+}
+.search{
+  border: none;
+  border-radius: 0 7px 7px 0;
+}
+.res{
+  position: absolute;
+  z-index: 1000;
+ top:  55px;
+ width:326px;
+ background-color: rgb(222, 221, 221);
+min-height: 0 !important;
+max-height: 500px;
+overflow-y: scroll;
+transition: width 3s;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 5px grey; */
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:  rgb(120, 120, 120);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+td{
+  vertical-align: middle;
+  border-bottom: 1px solid rgb(120, 120, 120);
+  font-weight: 470;
+}
+td img{
+  width: 50px;
+}
