@@ -3,13 +3,35 @@ import { Author } from '../interfaces/author';
 import { GetdataService } from '../services/getdata.service';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'app-author-list',
-  templateUrl: './author-list.component.html',
-  styleUrls: ['./author-list.component.css']
+  selector: 'app-all-authors',
+  templateUrl: './all-authors.component.html',
+  styleUrls: ['./all-authors.component.css']
 })
-export class AuthorListComponent {
-  cards : Author[] = []
+export class AllAuthorsComponent {
 
+  // cards :Author[] =[
+  //   {
+  //     avatar :'../../assets/images/pic-6.png',
+  //     name: 'authorName'
+  //    },
+  //    {
+  //      avatar :'../../assets/images/pic-2.png',
+  //      name : 'authorName'
+  //     },
+  //     {
+  //      avatar :'../../assets/images/pic-3.png',
+  //      name : 'authorName'
+  //     },
+  //     {
+  //      avatar :'../../assets/images/pic-4.png',
+  //      name : 'authorName'
+  //     },
+  //     {
+  //       avatar :'../../assets/images/pic-1.png',
+  //       name : 'authorName'
+  //      },
+  // ]
+  cards : Author[] = []
   constructor(public router: Router,private GetdataService :GetdataService ){}
   ngOnInit(){
     this.  getAllAuthor(),
@@ -34,6 +56,6 @@ export class AuthorListComponent {
     this.GetdataService.getAllAuthor().subscribe((res: any) => {
       console.log(res.response);
     });
-  }
+}
 
 }

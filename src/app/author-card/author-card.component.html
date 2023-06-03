@@ -1,7 +1,7 @@
 <div class="boxs">
-  <div class="data">
-    <!-- <img src="chttp://localhost:8080/{{card.avatar.replace('assets/', '')}}" alt="" /> -->
-    <img [src]="card.avatar" alt="">
+  <div class="data" (click)="redirectDetails(authorItem.id)">
+    <img src="http://localhost:8080/{{authorItem.avatar.replace('assets\\', '')}}" alt="" />
+    <!-- <img [src]="card.avatar" alt=""> -->
     <div class="social">
       <a href="#">
         <i class="fab fa-facebook-f"></i>
@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="info">
-    <h3>{{card.name}}</h3>
+    <h3>{{authorItem.name}}</h3>
   
   </div>
 </div>

@@ -1,0 +1,13 @@
+.col{
+    margin-bottom: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+
+
+ }
+
+  .my-pagination::ng-deep .ngx-pagination .current {
+    background: #1a065f;
+    
+    border-radius: 50%;
+   };

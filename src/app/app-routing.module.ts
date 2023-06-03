@@ -1,3 +1,5 @@
+import { AllAuthorsComponent } from './all-authors/all-authors.component';
+import { AllBooksComponent } from './all-books/all-books.component';
 import { FooterComponent } from './footer/footer.component';
 import { AuthorDetailsComponent } from './author-details/author-details.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
@@ -18,11 +20,19 @@ import { AdminGuard } from './guards/admin.guard';
 // import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 const routes: Routes = [
-  // {
-  //   path:"",
-  //   component:HeaderpageComponent
-  // }
-  // ,
+  {
+    path: 'author-details',
+    component: AuthorDetailsComponent
+  },
+  {
+    path:"all-books",
+    component:AllBooksComponent
+  },
+  {
+    path:"all-authors",
+    component:AllAuthorsComponent
+  }
+  ,
   {
     path: 'book-details',
     component: BookDetailsComponent
@@ -39,10 +49,7 @@ const routes: Routes = [
     path: 'profile',
     component: UserprofileComponent,
   },
-  {
-    path: 'book-details',
-    component: BookDetailsComponent
-  },
+
   {
     path: 'admin',
     component: AdminHomeComponent,
