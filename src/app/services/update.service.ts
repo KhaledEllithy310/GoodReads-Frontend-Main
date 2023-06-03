@@ -20,7 +20,7 @@ export class UpdateService {
 
   //UPDATE Author
   updateAuthor(id: any, data: any) {
-    return this.http.put('http://localhost:8080/Author/' + id, data);
+    return this.http.put('http://localhost:8080/Authors/' + id, data);
   }
 
   // UPDATE Book

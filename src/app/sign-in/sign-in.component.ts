@@ -19,6 +19,7 @@ export class SignInComponent {
   data:any;
   constructor(private http: HttpClient, private router: Router,private token: TokenserviceService) {}
   submitLoginForm() {
+
     this.http
       .post('http://localhost:8080/login', {
         email: this.email,
@@ -34,7 +35,7 @@ export class SignInComponent {
            }
            this.sessionData.push(this.data)
           this.token.storeData(this.sessionData);
-          window.location.href='';
+          this.router.navigate(['headerpage']);
         },
         (err) => {
           if (err)

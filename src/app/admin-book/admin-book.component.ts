@@ -119,18 +119,10 @@ export class AdminBookComponent {
     formData.set('description_updated', this.description_updated);
     formData.set('categoryId_updated', this.categoryId_updated);
     formData.set('authorId_updated', this.authorId_updated);
-    if (avatar_updated) {
-      formData.set('avatar', avatar_updated);
-    }
-    console.log('title_updated', this.title_updated);
-    console.log('description_updated', this.description_updated);
-    console.log('categoryId_updated', this.categoryId_updated);
-    console.log('authorId_updated', this.authorId_updated);
-
-    console.log(formData);
+    formData.set('avatar', avatar_updated);
     this.updateService
       .updateBook(idBook, formData)
       .subscribe((res) => console.log(res));
-    // window.location.reload();
+    window.location.reload();
   }
 }

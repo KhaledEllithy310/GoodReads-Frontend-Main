@@ -29,13 +29,31 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="#">Term & Condtions</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" [ngClass]="{ 'visually-hidden': respons?.role != true }">
           <a class="nav-link" routerLink="admin">Admin Panel</a>
         </li>
       </ul>
+
+
+      <div class="d-flex mx-3 cont">
+        <select #select class="form-select form-select-sm" aria-label=".form-select-sm example">
+          <option value="books" selected>books</option>
+          <option value="authors">authors</option>
+        </select>
+        <input #input id="search-input" type="text" placeholder="search ...." class="form-control search" aria-label="Text input with segmented dropdown button" (focus)="showResults = true" (blur)="showResults = false;input.value='';blur()" (keyup)="search(input.value,select.value)">
+        <div class="res" *ngIf="showResults">
+          <table class="table">
+              <tr *ngFor="let res of searched">
+                <td><img src="http://localhost:8080/{{res?.avatar.replace('assets\\', '')}}" ></td>
+                <td>{{res.title}}{{res.first_name}} {{res.last_name}}</td>
+              </tr>
+          </table></div>
+      </div>
+
+
       <ul
         class="navbar-nav"
-        [ngClass]="{ 'visually-hidden': isLoggedIn != null }"
+        [ngClass]="{ 'visually-hidden': isLoggedIn!=null }"
       >
         <li class="nav-item">
           <a class="nav-link" routerLink="signin">Sign In</a>
@@ -47,18 +65,17 @@
 
       <ul
         class="navbar-nav"
-        [ngClass]="{ 'visually-hidden': isLoggedIn == null }"
+        [ngClass]="{ 'visually-hidden': isLoggedIn==null }"
       >
         <li class="nav-item mx-3">
           <a class="nav-link log" href="profile">
             <img
-              src="http://localhost:8080/{{
-                respons.avatar.replace('assets\\', '')
+              src="http://localhost:8080/{{respons?.avatar.replace('assets\\', '')
               }}"
             />
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mt-1">
           <a class="nav-link log" href="" (click)="logOut()"
             ><i class="fa-solid fa-right-from-bracket s"></i
           ></a>

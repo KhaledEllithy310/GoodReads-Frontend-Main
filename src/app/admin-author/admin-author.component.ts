@@ -50,8 +50,6 @@ export class AdminAuthorComponent {
     console.log(avatar);
 
     this.addService.createAuthor(formData).subscribe((res) => console.log(res));
-    // this.getAllAuthor();
-    // console.log(data);
     window.location.reload();
   }
 
@@ -78,15 +76,12 @@ export class AdminAuthorComponent {
 
   updateAuthor(idAuthor: any) {
     const avatar_updated = this.updatefileInput.nativeElement.files[0];
+    console.log(this.first_name_updated);
     const formData = new FormData();
     formData.set('first_name', this.first_name_updated);
     formData.set('last_name', this.last_name_updated);
     formData.set('dateOfBirth', this.dateOfBirth_updated);
-    if (avatar_updated) {
-      formData.set('avatar', avatar_updated);
-    }
-
-    console.log(formData);
+    formData.set('avatar', avatar_updated);
     this.updateService
       .updateAuthor(idAuthor, formData)
       .subscribe((res) => console.log(res));
