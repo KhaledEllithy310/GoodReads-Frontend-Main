@@ -31,6 +31,10 @@ const routes: Routes = [
     component: UserprofileComponent,
   },
   {
+    path: 'book-details',
+    component: BookDetailsComponent
+  },
+  {
     path: 'admin',
     component: AdminHomeComponent,
     canActivate: [AdminGuard],
@@ -65,10 +69,6 @@ const routes: Routes = [
       {
         path:'headerpage',
         component: HeaderpageComponent
-      },
-      {
-        path: 'book-details',
-        component: BookDetailsComponent
       },
       {
         path: 'author-details',

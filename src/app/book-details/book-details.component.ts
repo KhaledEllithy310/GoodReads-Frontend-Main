@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-book-details',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./book-details.component.css']
 })
 export class BookDetailsComponent {
-
+  currentRate = 0;
+  constructor(config: NgbRatingConfig) {
+		config.max = 5;
+		config.readonly = true;
+	}
 }
