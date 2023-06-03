@@ -28,9 +28,10 @@ export class NavbarComponent {
   ) {}
   ngOnInit() {
     this.isLoggedIn = this.token.getStoredData();
-    this.http
+if(this.isLoggedIn!=null){    this.http
       .getUserData(this.isLoggedIn[0].id)
-      .subscribe((res: any) => (this.respons = res));
+      .subscribe((res: any) => (this.respons = res));}
+
   }
   logOut() {
     this.token.removeStoredData();

@@ -14,7 +14,7 @@ export class DeleteService {
 
   //DELETE Author
   deleteAuthor(id: any) {
-    return this.http.delete('http://localhost:8080/Author/' + id);
+    return this.http.delete('http://localhost:8080/Authors/' + id);
   }
 
   //DELETE Book
