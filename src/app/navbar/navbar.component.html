@@ -45,7 +45,7 @@
         <div class="res" *ngIf="showResults">
           <table class="table">
               <tr *ngFor="let res of searched">
-                <td><img src="http://localhost:8080/{{res.avatar.replace('assets\\', '')}}" ></td>
+                <td><img src="http://localhost:8080/{{res?.avatar.replace('assets\\', '')}}" ></td>
                 <td>{{res.title}}{{res.first_name}} {{res.last_name}}</td>
               </tr>
           </table></div>
@@ -71,8 +71,7 @@
         <li class="nav-item mx-3">
           <a class="nav-link log" href="profile">
             <img
-              src="http://localhost:8080/{{
-                respons.avatar.replace('assets\\', '')
+              src="http://localhost:8080/{{respons?.avatar.replace('assets\\', '')
               }}"
             />
           </a>

@@ -203,7 +203,7 @@
                 [(ngModel)]="categoryId_updated"
                 class="input__form"
               >
-                <option value=">Category Name" selected>Category Name</option>
+                <option value=">Category Name" selected disabled>Category Name</option>
                 <option
                   *ngFor="let category of categories"
                   value="{{ category._id }}"
@@ -219,7 +219,7 @@
                 [(ngModel)]="authorId_updated"
                 class="input__form"
               >
-                <option value="Author Name" selected>Author Name</option>
+                <option value="Author Name" selected disabled>Author Name</option>
                 <option *ngFor="let author of authors" value="{{ author._id }}">
                   {{ author.first_name + " " + author.last_name }}
                 </option>

@@ -14,6 +14,7 @@ import { AdminCategoryComponent } from './admin-category/admin-category.componen
 import { AdminBookComponent } from './admin-book/admin-book.component';
 import { AdminAuthorComponent } from './admin-author/admin-author.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AdminGuard } from './guards/admin.guard';
 // import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 const routes: Routes = [
@@ -32,6 +33,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminHomeComponent,
+    canActivate: [AdminGuard],
     children: [
       {
         path: 'categories',
@@ -76,7 +78,7 @@ const routes: Routes = [
         path: 'footer',
         component: FooterComponent
       },
-   
+
     ]
   } ,
   {
@@ -88,5 +90,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers:[AdminGuard],
 })
 export class AppRoutingModule {}
