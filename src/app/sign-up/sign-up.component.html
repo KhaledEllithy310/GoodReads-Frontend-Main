@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container signup">
   <div class="row justify-content-center">
     <div class="col-8 align-self-center my-5">
       <form
@@ -150,20 +150,21 @@
             />
           </div>
         </div>
-        <div class="text-center">
+        <div class="text-center my-4">
           <button
             type="submit"
-            class="btn__gen btn__primary btn_actions_form"
+            class="btn__gen btn__primary btn_actions_form btn_submit"
             [disabled]="registerForm.invalid"
             (click)="submitRegiterForm()"
           >
             Register
           </button>
         </div>
-        <p class="text-center mt-3 mb-3">
+        <p class="text-center mt-3 account">
           have an account ? <a routerLink="/signin">Login</a>
         </p>
       </form>
     </div>
   </div>
 </div>
+

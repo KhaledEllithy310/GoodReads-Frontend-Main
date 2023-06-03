@@ -134,17 +134,19 @@ input[type='file']::file-selector-button {
   /* line-height: 50px; */
 
   border: none;
-  /* background: #084cdf; */
-  /* padding: 10px 20px; */
+  background: #e4ebf5 !important;
+  color: #0d45a5 !important;
+  border: 0.5px solid gray;
+  padding: 5px 10px;
   border-radius: 10px;
   /* color: #fff; */
   cursor: pointer;
-  transition: background 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   /* margin: 10px; */
 }
 
-input[type='file']::file-selector-button:hover {
-  background: #0d45a5;
+input[type='file']:hover::file-selector-button {
+  color: #6d5dfc !important;
 }
 
 .input_container {
@@ -157,6 +159,7 @@ input[type='file']::file-selector-button:hover {
 /* .input_container input {
   width: 80%;
 } */
+
 .input_container label {
   width: 190px;
   font-size: 20px;
@@ -176,4 +179,22 @@ input[type='file']::file-selector-button:hover {
   font-family: 'Domine', serif;
   font-weight: 600;
   margin-bottom: 30px;
+}
+
+.btn_submit {
+  font-size: 20px;
+}
+
+.signup input[type='file']::file-selector-button {
+  margin: 5px;
+}
+
+.account {
+  text-transform: capitalize;
+  font-size: 18px;
+  font-family: 'Domine', serif;
+}
+
+.account a {
+  text-decoration: none;
 }
