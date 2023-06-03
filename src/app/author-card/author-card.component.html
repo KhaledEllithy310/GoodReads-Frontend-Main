@@ -1,12 +1,14 @@
 <div class="boxs">
-<<<<<<< HEAD
   <div class="data" (click)="redirectDetails(authorItem.id)">
-    <img src="http://localhost:8080/{{authorItem.avatar.replace('assets\\', '')}}" alt="" />
+    <img
+      src="http://localhost:8080/{{
+        authorItem.avatar.replace('assets\\', '')
+      }}"
+      alt=""
+    />
     <!-- <img [src]="card.avatar" alt=""> -->
-=======
-  <div class="data">
-    <img src="http://localhost:8080/{{card.avatar.replace('assets\\', '')}}" alt="" />
->>>>>>> 203986a279687601945fe2911e4d4930b5a92341
+    <!-- <div class="data">
+    <img src="http://localhost:8080/{{card.avatar.replace('assets\\', '')}}" alt="" /> -->
     <div class="social">
       <a href="#">
         <i class="fab fa-facebook-f"></i>
@@ -23,12 +25,8 @@
     </div>
   </div>
   <div class="info">
-<<<<<<< HEAD
-    <h3>{{authorItem.name}}</h3>
-  
-=======
-    <h3>{{card.name}}</h3>
+    <h3>{{ authorItem.name }}</h3>
 
->>>>>>> 203986a279687601945fe2911e4d4930b5a92341
+    <!-- <h3>{{card.name}}</h3> -->
   </div>
 </div>
