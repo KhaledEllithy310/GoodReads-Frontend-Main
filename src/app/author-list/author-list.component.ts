@@ -8,29 +8,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./author-list.component.css']
 })
 export class AuthorListComponent {
+  cards !: any;
 
-  cards :Author[] =[
-    {
-      avatar :'../../assets/images/pic-6.png',
-      name: 'authorName'
-     },
-     {
-       avatar :'../../assets/images/pic-2.png',
-       name : 'authorName'
-      },
-      {
-       avatar :'../../assets/images/pic-3.png',
-       name : 'authorName'
-      },
-      {
-       avatar :'../../assets/images/pic-4.png',
-       name : 'authorName'
-      },
-  ]
+  // cards :Author[] =[
+  //   {
+  //     avatar :'../../assets/images/pic-6.png',
+  //     name: 'authorName'
+  //    },
+  //    {
+  //      avatar :'../../assets/images/pic-2.png',
+  //      name : 'authorName'
+  //     },
+  //     {
+  //      avatar :'../../assets/images/pic-3.png',
+  //      name : 'authorName'
+  //     },
+  //     {
+  //      avatar :'../../assets/images/pic-4.png',
+  //      name : 'authorName'
+  //     },
+  // ]
   constructor(public router: Router,private GetdataService :GetdataService ){}
   ngOnInit(){
-    this.  getAllAuthor(),
-    this.  getAllAuthorapi()
+    this.  getAllAuthor()
+    // this.  getAllAuthorapi()
   }
   redirectDetails(id:any){
     this.router.navigate(['products-dtails',id])
@@ -40,25 +41,25 @@ export class AuthorListComponent {
   itemsPerPage:number= 4
   getAllAuthor(){
     this.GetdataService.getAllAuthor().subscribe((res:any)=>{
-    this.cards = res.response;
-    this.totalLength =res.response.length;
-      
+    this.cards = res;
+    this.totalLength =res.length;
+
     })
 
-  
+
   }
-  getAllAuthorapi(){
-    this.GetdataService.getAllAuthor().subscribe((res: any) => {
-      console.log(res.response);
-    });
-  }
+  // getAllAuthorapi(){
+  //   this.GetdataService.getAllAuthor().subscribe((res: any) => {
+  //     console.log(res.response);
+  //   });
+  // }
   // pagination code
   // p:number =1;
   // itemsPerPage:number =8;
   // totalAuthor:any;
 
-  // 
+
   // ngOnInit():void{
-  
+
   // }
 }
