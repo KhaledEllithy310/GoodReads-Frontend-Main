@@ -1,17 +1,26 @@
-
-<div class="team" id="team ">
-
-  <div class="container">
-    <div class="box" *ngFor="let card of cards |
-      paginate: { itemsPerPage: itemsPerPage,
-        currentPage: p,
-        totalItems:totalLength
-      }" >
-      <app-author-card [card]='card'></app-author-card>
+<div class="container">
+  <div class="team" id="team ">
+    <div class="container">
+      <div
+        class="box"
+        *ngFor="
+          let card of cards
+            | paginate
+              : {
+                  itemsPerPage: itemsPerPage,
+                  currentPage: p,
+                  totalItems: totalLength
+                }
+        "
+      >
+        <app-author-card [card]="card"></app-author-card>
+      </div>
+    </div>
+    <br /><br />
+    <pagination-controls
+      class="text-center my-pagination"
+      (pageChange)="p = $event"
+    ></pagination-controls>
   </div>
-  </div>
-  <br><br>
-  <pagination-controls  class="text-center my-pagination"(pageChange)="p = $event"></pagination-controls>
+  <!-- <app-footer></app-footer> -->
 </div>
-<!-- <app-footer></app-footer> -->
-
