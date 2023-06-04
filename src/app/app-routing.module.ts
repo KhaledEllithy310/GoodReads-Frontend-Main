@@ -22,7 +22,7 @@ import { BookByCategoryComponent } from './book-by-category/book-by-category.com
 
 const routes: Routes = [
   {
-    path: 'author-details',
+    path: 'author-details/:id',
     component: AuthorDetailsComponent,
   },
   {
@@ -35,7 +35,7 @@ const routes: Routes = [
   },
   {
     path: 'book-details/:id',
-    component: BookDetailsComponent
+    component: BookDetailsComponent,
   },
   {
     path: 'signin',
@@ -73,27 +73,27 @@ const routes: Routes = [
     ],
   },
   {
-  path:'',
-  component: HeaderpageComponent,
-  children:[
-    {
-      path: 'book-list',
-      component: BookListComponent
-    },
-    {
-      path: 'author-list',
-      component: AuthorListComponent
-    },
-    {
-      path: 'author-details',
-      component: AuthorDetailsComponent
-    },
-    {
-      path: 'footer',
-      component: FooterComponent
-    },
-
-  ]},
+    path: '',
+    component: HeaderpageComponent,
+    children: [
+      {
+        path: 'book-list',
+        component: BookListComponent,
+      },
+      {
+        path: 'author-list',
+        component: AuthorListComponent,
+      },
+      {
+        path: 'author-details',
+        component: AuthorDetailsComponent,
+      },
+      {
+        path: 'footer',
+        component: FooterComponent,
+      },
+    ],
+  },
   {
     path: '**',
     component: NotFoundPageComponent,

@@ -33,7 +33,7 @@
         </td>
         <td>{{ book.title }}</td>
         <td>{{ book.categoryId.name }}</td>
-        <td>{{ book.authorId.first_name + book.authorId.last_name }}</td>
+        <td>{{ book.authorId?.first_name + book.authorId?.last_name }}</td>
         <td>
           <div
             class="btn btn__gen btn-danger btn_actions"

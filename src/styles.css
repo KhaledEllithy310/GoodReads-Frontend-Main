@@ -262,3 +262,9 @@ input[type='file']:hover::file-selector-button {
 .navbar ul {
   align-items: baseline;
 }
+
+.title_row{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

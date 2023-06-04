@@ -17,11 +17,7 @@ export class BookByCategoryComponent {
     private GetdataService: GetdataService
   ) {}
   ngOnInit() {
-    this.getBookByCategory(this.activatedRoute.snapshot.params['id']);
-    console.log(this.activatedRoute.snapshot.params['id']);
-    this.targetBooks = this.BooksOfCategory.find(
-      (category) => category._id == this.activatedRoute.snapshot.params['id']
-    );
+    
     this.getAllBook();
   }
 

@@ -1,64 +1,46 @@
-<div class="row ">
-    <div class="colm d-flex">
-      <div class="img-header w-25 ">
-        <img class="w-100" src="../../assets/images/book-1.png" alt="">
+<div class="container author_container">
+  <div class="row">
+    <div class="col d-flex">
+      <div class="img-header w-25">
+        <img
+          class="w-100"
+          src="http://localhost:8080/{{
+            targetAuthor[0].avatar.replace('assets\\', '')
+          }}"
+          alt=""
+        />
       </div>
       <div class="contant w-50">
-        <h1>Author Name</h1>
-        <h3>15/5/1999</h3>
-        <p class="text-secondary ">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-          ea
-          commodo consequat is aute irure.
+        <h1>
+          {{ targetAuthor[0].first_name + " " + targetAuthor[0].last_name }}
+        </h1>
+        <h3>{{ targetAuthor[0].dateOfBirth | date : "d-M-y" }}</h3>
+        <p class="text-secondary">
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat is aute irure.
         </p>
       </div>
     </div>
   </div>
-  <div class="review m-auto p-5">
-  
-    <div class="row p-5">
-      <div class="colm d-flex ">
-        <div class="img-header  ">
-          <img src="../../assets/images/book-1.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        <div class="img-header  ">
-          <img src="../../assets/images/book-2.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        <div class="img-header  ">
-          <img src="../../assets/images/book-3.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        <div class="img-header  ">
-          <img src="../../assets/images/book-4.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        <div class="img-header  ">
-          <img src="../../assets/images/book-5.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        <div class="img-header  ">
-          <img src="../../assets/images/book-6.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        <div class="img-header  ">
-          <img src="../../assets/images/book-7.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        <div class="img-header  ">
-          <img src="../../assets/images/book-8.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        <div class="img-header  ">
-          <img src="../../assets/images/book-9.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        <div class="img-header  ">
-          <img src="../../assets/images/book-10.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        
+</div>
+<div class="review m-auto p-5">
+  <div class="row p-5">
+    <div class="colm d-flex">
+      <div class="img-header p-2" *ngFor="let author of authors">
+        <img
+          src="http://localhost:8080/{{
+            author.avatar.replace('assets\\', '')
+          }}"
+          alt=""
+        />
+        <h5 class="p-2">
+          <a
+            href="author-details/{{ author._id }}"
+            (click)="redirectDetails(author._id)"
+            >{{ author.first_name + " " + author.last_name }}</a
+          >
+        </h5>
       </div>
-  
-  
     </div>
+  </div>
+</div>
