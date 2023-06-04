@@ -21,6 +21,7 @@ export class BookDetailsComponent {
   userRate: any;
   avgRate!:number;
   mapedBooks!: any;
+  default=0;
   constructor(
     private activatedRoute: ActivatedRoute,
     config: NgbRatingConfig,
@@ -64,6 +65,8 @@ export class BookDetailsComponent {
         .subscribe((res: any) => {
           this.userRate = res,console.log(this.userRate);
         });
+    }else{
+      this.userRate[0].rate=0;
     }
   }
   addRev(review: any, rate: any) {

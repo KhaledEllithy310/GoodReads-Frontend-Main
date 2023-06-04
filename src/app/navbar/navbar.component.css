@@ -116,7 +116,7 @@ td img {
   row-gap: 0px;
   /* height: 200px; */
   align-content: center;
-  justify-content: center;
+  justify-content: start;
   padding: 15px;
   border-radius: 10px;
   z-index: 10;

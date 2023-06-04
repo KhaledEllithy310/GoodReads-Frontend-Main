@@ -3,15 +3,21 @@
     <div class="row p-5">
       <div class="img-header text-center">
         <img src="http://localhost:8080/{{book?.avatar.replace('assets\\', '')}}" alt="">
-        <select #mySelect class="form-select form-select-lg mb-3 mt-4 p-2 text-light" aria-label=".form-select-lg example" (change)="onSelected(mySelect.value)">
+        <select #mySelect class="form-select form-select-lg mb-3 mt-4 p-2 text-light"
+          aria-label=".form-select-lg example" (change)="onSelected(mySelect.value)">
           <option selected disabled>Select this book</option>
           <option value="readed">readed</option>
           <option value="Want to read">Want to read</option>
           <option value="reading">reading</option>
         </select>
-        <p *ngIf="userRate[0]?.rate!=null">your rate</p>
-        <p *ngIf="userRate[0]?.rate==null">add rate</p>
-        <ngb-rating #rate [rate]=0||userRate[0]?.rate [readonly]=false (click)="addRev(review.value,rate.rate)"></ngb-rating>
+
+
+        <div *ngIf="dataStored != null">
+          <p *ngIf="userRate[0]?.rate!=null">your rate</p>
+          <p *ngIf="userRate[0]?.rate==null">add rate</p>
+          <ngb-rating #rate [rate]=0||userRate[0]?.rate [readonly]=false
+            (click)="addRev(review.value,rate.rate)"></ngb-rating>
+        </div>
       </div>
       <div class="contant">
         <h1>{{book?.title}}</h1>
@@ -19,7 +25,7 @@
         <ngb-rating [(rate)]=avgRate></ngb-rating>
 
         <p class="text-secondary p-1">{{book.description}}</p>
-        <div> <label class="labl mx-2" for="">Genres </label><a class="cat" href="#">{{book.categoryId.name}}</a></div>
+        <div> <label class="labl mx-2" for="">Genres </label><a class="cat" href="/BookByCategory/{{book.categoryId._id}}">{{book.categoryId.name}}</a></div>
         <div class="review mt-5">
           <h2 class="pt-4 ps-4 pb-4 text-danger">Reviews</h2>
           <div class="row ps-3 px-3" *ngFor="let review of reviews">
@@ -31,15 +37,20 @@
                 <h5>{{review.userId.firstName}} {{review.userId.lastName}}</h5>
                 <ngb-rating class="rate" [rate]=review.rate></ngb-rating>
 
-                <div class="text-secondary"><p>{{review.review}}</p></div>
+                <div class="text-secondary">
+                  <p>{{review.review}}</p>
+                </div>
               </div>
-            </div> <hr class="mb-2">
+            </div>
+            <hr class="mb-2">
           </div>
         </div>
         <div class="container text-center">
           <h3 class="float-start mt-4">Add your review</h3>
-          <textarea #review class="mt-2 p-3" name="" placeholder="Enter your review" id="area" cols="60" rows="5"></textarea>
-          <button class="btn btn-success d-block m-auto pb-2 pt-2 ps-4 px-4 vir mb-5" (click)="addRev(review.value,rate.rate)">Review</button>
+          <textarea #review class="mt-2 p-3" name="" placeholder="Enter your review" id="area" cols="60"
+            rows="5"></textarea>
+          <button class="btn btn-success d-block m-auto pb-2 pt-2 ps-4 px-4 vir mb-5"
+            (click)="addRev(review.value,0)">Review</button>
         </div>
       </div>
 
@@ -48,7 +59,5 @@
 
   </div>
 
-
-
-
 </header>
+<app-footer></app-footer>

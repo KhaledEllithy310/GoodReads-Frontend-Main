@@ -40,3 +40,9 @@
   background: rgb(109, 93, 252);
   border-radius: 50%;
 }
+.footer{
+position: absolute;
+bottom: 0;
+right: 0;
+left: 0;
+}
