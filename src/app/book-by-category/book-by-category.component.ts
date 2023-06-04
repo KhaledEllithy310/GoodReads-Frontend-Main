@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from './../interfaces/book';
 import { GetdataService } from './../services/getdata.service';
 
@@ -14,23 +14,16 @@ export class BookByCategoryComponent {
   // Category: Book[] = [];
   constructor(
     private activatedRoute: ActivatedRoute,
-    private GetdataService: GetdataService
+    private GetdataService: GetdataService,
+    private router: Router
   ) {}
   ngOnInit() {
-    
     this.getAllBook();
   }
 
   totalLength: any;
   p: number = 1;
   itemsPerPage: number = 8;
-
-  // getBookByCategory(id:any) {
-  //   this.GetdataService.getBookByCategory(id).subscribe((res: any) => {
-  //     this.BooksOfCategory = res.response;
-  //     this.totalLength = res.response.length;
-  //   });
-  // }
 
   getBookByCategory(id: any) {
     this.GetdataService.getBookByCategory(id).subscribe((res: any) => {
@@ -45,5 +38,11 @@ export class BookByCategoryComponent {
           elem.categoryId._id == this.activatedRoute.snapshot.params['id']
       );
     });
+  }
+
+  //REDIRECT TO BOOK DETAILS PAGE
+  redirectDetails(id: any) {
+    console.log(id);
+    this.router.navigate(['book-details', id]);
   }
 }

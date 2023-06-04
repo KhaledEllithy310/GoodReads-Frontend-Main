@@ -1,27 +1,33 @@
-<div class="container">
-  <div class="row">
-    <div class="cards" *ngFor="let Book of BooksOfCategory">
-      <div class="face face1">
-        <div class="content">
+<div class="container bookCategory_container">
+  <div class="row justify-content-between">
+    <div class="col-lg-3 p-2 g-2" *ngFor="let Book of BooksOfCategory">
+      <div class="cards">
+        <div class="box-img">
           <img
             src="http://localhost:8080/{{
               Book.avatar.replace('assets\\', '')
             }}"
             alt=""
           />
-          <h5>{{ Book.title | uppercase }}</h5>
         </div>
-      </div>
-      <div class="face face2">
+
         <div class="content">
-          <p>{{ Book.description }}</p>
+          <h3 class="title_row">{{ Book.title | uppercase }}</h3>
+        </div>
+        <div class="info">
+          <a
+            (click)="redirectDetails(Book._id)"
+            href="/book-details/{{ Book._id }}"
+            >Read More</a
+          >
+          <i class="fas fa-long-arrow-alt-right"></i>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="cards">
+<!-- <div class="cards" *ngFor="let Book of BooksOfCategory">
   <div class="box-img">
     <img
       src="http://localhost:8080/{{ Book.avatar.replace('assets\\', '') }}"
@@ -33,11 +39,9 @@
     <h3 class="title_row">{{ Book.title | uppercase }}</h3>
   </div>
   <div class="info">
-    <a
-      (click)="redirectDetails(Book._id)"
-      href="/book-details/{{ bookItem._id }}"
+    <a (click)="redirectDetails(Book._id)" href="/book-details/{{ Book._id }}"
       >Read More</a
     >
     <i class="fas fa-long-arrow-alt-right"></i>
   </div>
-</div>
+</div> -->
