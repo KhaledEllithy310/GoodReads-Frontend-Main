@@ -31,8 +31,8 @@ select {
 .res {
   position: absolute;
   z-index: 1000;
-  top: 55px;
-  width: 326px;
+  top: 61px;
+  width: 328px;
   background-color: rgb(222, 221, 221);
   min-height: 0 !important;
   max-height: 500px;
@@ -67,6 +67,9 @@ td {
 }
 td img {
   width: 50px;
+}
+.mb-2 {
+  margin-bottom: 0.82rem!important;
 }
 
 .navbar {
