@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-light shadow ">
+<nav class="navbar navbar-expand-lg bg-light shadow">
   <div class="container">
     <a class="navbar-brand" href="#"></a>
     <button
@@ -15,13 +15,27 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/">BookStore</a>
+          <a class="nav-link active title_page" aria-current="page" routerLink="/"
+            >BookStore</a
+          >
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/all-books">Books</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="#">Categories</a>
+        <li class="nav-item category_menu" (click)="displayMenu()">
+          <a class="nav-link category_list">Categories</a>
+          <div class="container_category" id="container_category">
+            <div class="category_drop" id="category_drop">
+              <li *ngFor="let category of categories">
+                <i class="fa-solid fa-chevron-right"></i
+                ><a
+                  href="/BookByCategory/{{ category._id }}"
+                  (click)="redirectDetails(category._id)"
+                  >{{ category.name }}</a
+                >
+              </li>
+            </div>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/all-authors">Authors</a>
@@ -29,31 +43,53 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="#">Term & Condtions</a>
         </li>
-        <li class="nav-item" [ngClass]="{ 'visually-hidden': respons?.role != true }">
+        <li
+          class="nav-item"
+          [ngClass]="{ 'visually-hidden': respons?.role != true }"
+        >
           <a class="nav-link" routerLink="admin">Admin Panel</a>
         </li>
       </ul>
 
-
       <div class="d-flex mx-3 cont">
-        <select #select class="form-select form-select-sm" aria-label=".form-select-sm example">
+        <select
+          #select
+          class="form-select form-select-sm"
+          aria-label=".form-select-sm example"
+        >
           <option value="books" selected>books</option>
           <option value="authors">authors</option>
         </select>
-        <input #input id="search-input" type="text" placeholder="search ...." class="form-control search" aria-label="Text input with segmented dropdown button" (focus)="showResults = true" (blur)="showResults = false;input.value='';blur()" (keyup)="search(input.value,select.value)">
+        <input
+          #input
+          id="search-input"
+          type="text"
+          placeholder="search ...."
+          class="form-control search"
+          aria-label="Text input with segmented dropdown button"
+          (focus)="showResults = true"
+          (blur)="showResults = false; input.value = ''; blur()"
+          (keyup)="search(input.value, select.value)"
+        />
         <div class="res" *ngIf="showResults">
           <table class="table">
-              <tr *ngFor="let res of searched">
-                <td><img src="http://localhost:8080/{{res?.avatar.replace('assets\\', '')}}" ></td>
-                <td>{{res.title}}{{res.first_name}} {{res.last_name}}</td>
-              </tr>
-          </table></div>
+            <tr *ngFor="let res of searched">
+              <td>
+                <img
+                  src="http://localhost:8080/{{
+                    res?.avatar.replace('assets\\', '')
+                  }}"
+                />
+              </td>
+              <td>{{ res.title }}{{ res.first_name }} {{ res.last_name }}</td>
+            </tr>
+          </table>
+        </div>
       </div>
-
 
       <ul
         class="navbar-nav"
-        [ngClass]="{ 'visually-hidden': isLoggedIn!=null }"
+        [ngClass]="{ 'visually-hidden': isLoggedIn != null }"
       >
         <li class="nav-item">
           <a class="nav-link" routerLink="signin">Sign In</a>
@@ -65,12 +101,13 @@
 
       <ul
         class="navbar-nav"
-        [ngClass]="{ 'visually-hidden': isLoggedIn==null }"
+        [ngClass]="{ 'visually-hidden': isLoggedIn == null }"
       >
         <li class="nav-item mx-3">
           <a class="nav-link log" href="profile">
             <img
-              src="http://localhost:8080/{{respons?.avatar.replace('assets\\', '')
+              src="http://localhost:8080/{{
+                respons?.avatar.replace('assets\\', '')
               }}"
             />
           </a>

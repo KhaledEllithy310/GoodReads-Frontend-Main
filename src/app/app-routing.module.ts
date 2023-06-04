@@ -17,22 +17,22 @@ import { AdminBookComponent } from './admin-book/admin-book.component';
 import { AdminAuthorComponent } from './admin-author/admin-author.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminGuard } from './guards/admin.guard';
+import { BookByCategoryComponent } from './book-by-category/book-by-category.component';
 // import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 const routes: Routes = [
   {
     path: 'author-details',
-    component: AuthorDetailsComponent
+    component: AuthorDetailsComponent,
   },
   {
-    path:"all-books",
-    component:AllBooksComponent
+    path: 'all-books',
+    component: AllBooksComponent,
   },
   {
-    path:"all-authors",
-    component:AllAuthorsComponent
-  }
-  ,
+    path: 'all-authors',
+    component: AllAuthorsComponent,
+  },
   {
     path: 'book-details/:id',
     component: BookDetailsComponent
@@ -44,6 +44,10 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignUpComponent,
+  },
+  {
+    path: 'BookByCategory/:id',
+    component: BookByCategoryComponent,
   },
   {
     path: 'profile',
@@ -67,37 +71,39 @@ const routes: Routes = [
         path: 'books',
         component: AdminBookComponent,
       },
-
-    ]
+    ],
   },
   {
-  path:'',
-  component: HeaderpageComponent,
-  children:[
-    {
-      path: 'book-list',
-      component: BookListComponent
-    },
-    {
-      path: 'author-list',
-      component: AuthorListComponent
-    },
-    {
-      path: 'author-details',
-      component: AuthorDetailsComponent
-    },
-    {
-      path: 'footer',
-      component: FooterComponent
-    },
-
-  ]}
- 
+    path: '',
+    component: HeaderpageComponent,
+    children: [
+      {
+        path: 'book-list',
+        component: BookListComponent,
+      },
+      {
+        path: 'author-list',
+        component: AuthorListComponent,
+      },
+      {
+        path: 'author-details',
+        component: AuthorDetailsComponent,
+      },
+      {
+        path: 'footer',
+        component: FooterComponent,
+      },
+    ],
+  },
+  {
+    path: '**',
+    component: NotFoundPageComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers:[AdminGuard],
+  providers: [AdminGuard],
 })
 export class AppRoutingModule {}

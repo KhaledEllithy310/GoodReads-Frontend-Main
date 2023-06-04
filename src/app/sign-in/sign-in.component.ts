@@ -36,6 +36,7 @@ export class SignInComponent {
            this.sessionData.push(this.data)
           this.token.storeData(this.sessionData);
           this.router.navigate(['']);
+          window.location.href=('profile');
         },
         (err) => {
           if (err)

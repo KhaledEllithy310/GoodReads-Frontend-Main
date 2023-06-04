@@ -10,10 +10,11 @@ import { Router } from '@angular/router';
 export class AuthorListComponent {
   cards : Author[] = []
 
+
   constructor(public router: Router,private GetdataService :GetdataService ){}
   ngOnInit(){
     this.  getAllAuthor()
-    // this.  getAllAuthorapi()
+ 
   }
   redirectDetails(id:any){
     this.router.navigate(['products-dtails',id])
@@ -30,4 +31,6 @@ export class AuthorListComponent {
 
 
   }
+
+
 }

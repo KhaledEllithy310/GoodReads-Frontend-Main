@@ -32,6 +32,7 @@ import { AuthorDetailsComponent } from './author-details/author-details.componen
 import { FooterComponent } from './footer/footer.component';
 import { AllBooksComponent } from './all-books/all-books.component';
 import { AllAuthorsComponent } from './all-authors/all-authors.component';
+import { BookByCategoryComponent } from './book-by-category/book-by-category.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,7 @@ import { AllAuthorsComponent } from './all-authors/all-authors.component';
     AdminAuthorComponent,
     AdminBookComponent,
     NotFoundPageComponent,
-    AdminNavbarComponent,AdminHomeComponent, HeaderpageComponent, BookDetailsComponent, BookCardComponent, BookListComponent, AuthorListComponent, AuthorCardComponent, AuthorDetailsComponent, FooterComponent, AllBooksComponent, AllAuthorsComponent
+    AdminNavbarComponent,AdminHomeComponent, HeaderpageComponent, BookDetailsComponent, BookCardComponent, BookListComponent, AuthorListComponent, AuthorCardComponent, AuthorDetailsComponent, FooterComponent, AllBooksComponent, AllAuthorsComponent, BookByCategoryComponent
   ],
   imports: [
     BrowserModule,

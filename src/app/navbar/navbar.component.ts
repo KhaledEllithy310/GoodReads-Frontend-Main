@@ -16,6 +16,7 @@ import { FlagService } from '../services/flag.service';
   providers: [NgbModalConfig, NgbModal],
 })
 export class NavbarComponent {
+  categories!: any[];
   isLoggedIn: any;
   respons!: any;
   showResults = false;
@@ -27,7 +28,9 @@ export class NavbarComponent {
     private router: Router,
     private http: GetdataService,
     private req: HttpClient,
-    private flag: FlagService
+    private flag: FlagService,
+    private getdataService: GetdataService,
+    private Router: Router
   ) {}
   ngOnInit() {
     this.isLoggedIn = this.token.getStoredData();
@@ -36,6 +39,8 @@ export class NavbarComponent {
         .getUserData(this.isLoggedIn[0].id)
         .subscribe((res: any) => (this.respons = res));
     }
+    //Display All Category
+    this.getAllCategory();
   }
   logOut() {
     this.flag.setFlag(0);
@@ -50,5 +55,37 @@ export class NavbarComponent {
   }
   blur() {
     this.searched = '';
+  }
+
+  //GET ALL CATEGORIES
+  getAllCategory() {
+    this.getdataService
+      .getAllCategory()
+      .subscribe((res: any) => (this.categories = res));
+  }
+
+  //RETIRECT TO THE BOOK BY CATOGORY PAGE
+  redirectDetails(categoryId: any) {
+    this.Router.navigate(['BookByCategory', categoryId]);
+  }
+
+  //DISOLAY ALL CATEGORY FROM THE MENU
+  displayMenu() {
+    const container_category = document.querySelector(
+      '.container_category'
+    ) as HTMLElement;
+    if (!container_category) {
+      return;
+    }
+
+    if (container_category.style.display !== 'block') {
+      // Show the drop-down menu if it's not visible
+      container_category.style.display = 'block';
+    } else {
+      // Hide the drop-down menu after a short delay
+      setTimeout(() => {
+        container_category.style.display = 'none';
+      }, 100);
+    }
   }
 }

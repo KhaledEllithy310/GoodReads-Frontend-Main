@@ -15,8 +15,8 @@ body {
   /* background-color: #e4ebf5 !important; */
   /* background-color: red !important; */
   /* font-family: 'Sawarabi Gothic', sans-serif; */
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 
-  'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .bgGreyLight_1 {
@@ -185,6 +185,7 @@ input[type='file']:hover::file-selector-button {
 
 .btn_submit {
   font-size: 20px;
+  text-transform: capitalize;
 }
 
 .signup input[type='file']::file-selector-button {
@@ -200,6 +201,64 @@ input[type='file']:hover::file-selector-button {
 .account a {
   text-decoration: none;
 }
+
+.signin {
+  padding: 20px;
+}
+.signin .error_form {
+}
+
+.signin .input_container label {
+  width: 225px;
+}
 /* nav{
   box-shadow: 5px 5px 10px rgb(119, 109, 109), -5px -5px 10px rgb(163, 154, 154);
 } */
+.back {
+  background-color: #eee;
+  height: 100%;
+  background-image: url('https://images.pexels.com/photos/2177482/pexels-photo-2177482.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.back::after {
+  content: '';
+  background-color: rgba(0, 0, 0, 0.507);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  z-index: -1;
+}
+
+.signin .bgGreyLight_1 {
+  background-color: #b4b4b4 !important;
+  height: 550px;
+  width: 400px;
+  margin: auto;
+}
+
+.signin input::placeholder {
+  color: rgb(107, 107, 107);
+}
+
+.signin .title_form {
+  margin-top: 40px;
+  color: rgb(0 0 0 / 55%);
+}
+
+.navbar .title_page {
+  color: rgb(109 93 252) !important;
+  font-size: 30px;
+  padding-right: 20px;
+}
+
+.navbar li {
+  line-height: 50px;
+}
+
+.navbar ul {
+  align-items: baseline;
+}
