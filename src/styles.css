@@ -202,52 +202,7 @@ input[type='file']:hover::file-selector-button {
   text-decoration: none;
 }
 
-.signin {
-  padding: 20px;
-}
-.signin .error_form {
-}
 
-.signin .input_container label {
-  width: 225px;
-}
-/* nav{
-  box-shadow: 5px 5px 10px rgb(119, 109, 109), -5px -5px 10px rgb(163, 154, 154);
-} */
-.back {
-  background-color: #eee;
-  height: 100%;
-  background-image: url('https://images.pexels.com/photos/2177482/pexels-photo-2177482.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-  background-size: cover;
-  position: relative;
-  z-index: 1;
-}
-
-.back::after {
-  content: '';
-  background-color: rgba(0, 0, 0, 0.507);
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  inset: 0;
-  z-index: -1;
-}
-
-.signin .bgGreyLight_1 {
-  background-color: #b4b4b4 !important;
-  height: 550px;
-  width: 400px;
-  margin: auto;
-}
-
-.signin input::placeholder {
-  color: rgb(107, 107, 107);
-}
-
-.signin .title_form {
-  margin-top: 40px;
-  color: rgb(0 0 0 / 55%);
-}
 
 .navbar .title_page {
   color: rgb(109 93 252) !important;
@@ -263,8 +218,25 @@ input[type='file']:hover::file-selector-button {
   align-items: baseline;
 }
 
-.title_row{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.title_row {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media only screen and (max-width: 991px) {
+  .navbar-nav {
+    /* max-width: 540px; */
+    /* background-color: #dce2f0c2 !important; */
+    background-color: #f8f9fade !important;
+    padding: 10px;
+  }
+
+  .navbar-nav .select_container {
+    width: fit-content !important;
+    background-color: #9baacf !important;
+    padding: 10px;
+    margin: 0!important;
+    border-radius: 0 !important;
+  }
 }

@@ -13,7 +13,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto  mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active title_page" aria-current="page" routerLink="/"
             >BookStore</a
@@ -26,7 +26,7 @@
           <a class="nav-link category_list">Categories</a>
           <div class="container_category" id="container_category">
             <div class="category_drop" id="category_drop">
-              <li *ngFor="let category of categories">
+              <li class="liContainer" *ngFor="let category of categories">
                 <i class="fa-solid fa-chevron-right"></i
                 ><a
                   href="/BookByCategory/{{ category._id }}"
@@ -52,7 +52,7 @@
       </ul>
 
 
-      <div class="d-flex mx-3 cont" (hover)="showResults=true" (blur)="showResults=false;blur()">
+      <div class=" select_container d-flex mx-3 cont" (hover)="showResults=true" (blur)="showResults=false;blur()">
         <select #select class="form-select form-select-sm" aria-label=".form-select-sm example">
           <option value="books" selected>books</option>
           <option value="authors">authors</option>
