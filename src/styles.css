@@ -202,8 +202,6 @@ input[type='file']:hover::file-selector-button {
   text-decoration: none;
 }
 
-
-
 .navbar .title_page {
   color: rgb(109 93 252) !important;
   font-size: 30px;
@@ -222,6 +220,7 @@ input[type='file']:hover::file-selector-button {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-transform: capitalize;
 }
 
 @media only screen and (max-width: 991px) {
@@ -236,7 +235,20 @@ input[type='file']:hover::file-selector-button {
     width: fit-content !important;
     background-color: #9baacf !important;
     padding: 10px;
-    margin: 0!important;
+    margin: 0 !important;
     border-radius: 0 !important;
   }
 }
+/* 
+.img_user img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.img_user {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+} */

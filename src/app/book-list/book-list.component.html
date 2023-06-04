@@ -1,20 +1,22 @@
 
 
-<div class="articles">
-  <div class="container">
-  <div class="containers">
-    <div class="box" *ngFor="let book of books | 
-    paginate: { itemsPerPage: itemsPerPage,
-                currentPage: p,
-                totalItems:totalLength
-              }">
+<div class="book_section">
+  <div class="articles">
+    <div class="container">
+    <div class="containers">
+      <div class="box" *ngFor="let book of books |
+      paginate: { itemsPerPage: itemsPerPage,
+                  currentPage: p,
+                  totalItems:totalLength
+                }">
 
-         <app-book-card [bookItem]="book" > </app-book-card>  
-      <br><br>
+           <app-book-card [bookItem]="book" > </app-book-card>
+        <br><br>
+      </div>
     </div>
-  </div>
-    <pagination-controls  class="text-center my-pagination"(pageChange)="p = $event"></pagination-controls>
-  
+      <pagination-controls  class="text-center my-pagination"(pageChange)="p = $event"></pagination-controls>
+
+    </div>
   </div>
 </div>
 <!-- <app-author-list></app-author-list> -->

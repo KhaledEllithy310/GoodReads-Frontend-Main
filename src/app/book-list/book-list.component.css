@@ -3,19 +3,19 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
  } */
- .articles {
+.articles {
   padding-top: 100px;
   padding-bottom: 100px;
   position: relative;
-  background-color: #eee;
+  background-color: #f2f2f2;
 }
 .articles .containers {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(228px, 1fr));
   gap: 40px;
 }
-  .my-pagination::ng-deep .ngx-pagination .current {
-    background: #3777FC;
-    
-    border-radius: 50%;
-   };
+.my-pagination::ng-deep .ngx-pagination .current {
+  background: #3777fc;
+
+  border-radius: 50%;
+}

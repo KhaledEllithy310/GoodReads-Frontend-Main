@@ -40,9 +40,6 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/all-authors">Authors</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="#">Term & Condtions</a>
-        </li>
         <li
           class="nav-item"
           [ngClass]="{ 'visually-hidden': respons?.role != true }"
@@ -85,7 +82,7 @@
         [ngClass]="{ 'visually-hidden': isLoggedIn == null }"
       >
         <li class="nav-item mx-3">
-          <a class="nav-link log" href="profile">
+          <a class="nav-link log img_user" href="profile">
             <img class="mb-2"
               src="http://localhost:8080/{{
                 respons?.avatar.replace('assets\\', '')

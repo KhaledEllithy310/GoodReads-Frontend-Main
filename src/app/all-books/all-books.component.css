@@ -1,16 +1,15 @@
 .articles {
-  padding-top: 100px;
+  margin-top: 130px;
   padding-bottom: 100px;
   position: relative;
 }
 .articles .containers {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 40px;
-
 }
-  .my-pagination::ng-deep .ngx-pagination .current {
-    background: rgb(109, 93, 252);
+.my-pagination::ng-deep .ngx-pagination .current {
+  background: rgb(109, 93, 252);
 
-    border-radius: 50%;
-   };
+  border-radius: 50%;
+}

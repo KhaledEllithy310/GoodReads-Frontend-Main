@@ -57,3 +57,9 @@ a {
 .bookCategory_container {
   margin-top: 130px;
 }
+
+.my-pagination::ng-deep .ngx-pagination .current {
+  margin-top: 20px;
+  background: #3777fc;
+  border-radius: 50%;
+}
