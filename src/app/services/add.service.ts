@@ -24,7 +24,7 @@ export class AddService {
   }
 
   //Add review
-  addReview(data: any) {
-    return this.http.post('http://localhost:8080/reviews', data);
+  addReviewRate(data: any) {
+    return this.http.post(`http://localhost:8080/userbooks`, data);
   }
 }

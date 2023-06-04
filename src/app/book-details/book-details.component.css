@@ -54,7 +54,7 @@ header .contant h1 {
     color: #0b1c39;
     font-size: 55px;
     font-weight: 700;
-    line-height: .5;
+    line-height: .9;
     margin-bottom: 26px;
 }
 
@@ -129,9 +129,15 @@ header .img-header img {
     ;
 }
 .review .img-header img{
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     padding: 10px;
+    margin-right: 10px;
+}
+
+.img-header{
+width: auto !important;
+height: auto !important;
 }
 
 .form-select{
@@ -178,4 +184,9 @@ margin-top: ;
 }
 .rate{
   font-size: 18px;
+}
+.float-start{
+  color: #6d5dfc;
+  font-size: 20px;
+  font-weight: bold;
 }

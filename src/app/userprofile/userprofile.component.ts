@@ -10,6 +10,7 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { AddService } from '../services/add.service';
 
 @Component({
   selector: 'app-userprofile',
@@ -37,6 +38,7 @@ export class UserprofileComponent {
     private token: TokenserviceService,
     private req: GetdataService,
     private http: HttpClient,
+    private add : AddService,
     config1: NgbRatingConfig,
     config: NgbModalConfig,
     private modalService: NgbModal
@@ -73,7 +75,8 @@ export class UserprofileComponent {
       .getUserData(this.userId)
       .subscribe((res: any) => (this.user = res));
     this.req.getUserBookData(this.userId).subscribe((res: any) => {
-      (this.books = res),
+      (this.books = res),console.log(this.books);
+
         (this.readed = this.books.filter((elm: any) => {
           return elm.status === 'readed';
         })),
@@ -109,11 +112,14 @@ export class UserprofileComponent {
   }
 
   //update user rate
-  updateRate(id: any, val: number) {
-    console.log(id);
-    console.log(val);
-    let rate = { rate: val };
-    this.http.put(`http://localhost:8080/userbooks/${id}`, rate).subscribe(
+  updateRate(id: any, val: any) {
+    const data = {
+      userId: this.userId,
+      bookId: id,
+      rate: val,
+    };
+    console.log(data);
+    this.add.addReviewRate(data).subscribe(
       (res) => {
         console.log(res), window.location.reload();
       },

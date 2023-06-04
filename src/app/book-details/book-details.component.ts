@@ -18,7 +18,8 @@ export class BookDetailsComponent {
   book: any;
   dataStored!: any;
   reviews!: any;
-
+  userRate: any;
+  avgRate!:number;
   mapedBooks!: any;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -34,22 +35,38 @@ export class BookDetailsComponent {
   ngOnInit() {
     this.dataStored = this.stored.getStoredData();
 
+
+
+
     this.req
       .getBookData(this.activatedRoute.snapshot.params['id'])
-      .subscribe((res: any) => (this.book = res.response,console.log(this.book)
-      ));
+      .subscribe(
+        (res: any) => ((this.book = res.response), console.log(this.book))
+      );
+
+
     this.req
       .getReviews(this.activatedRoute.snapshot.params['id'])
-      .subscribe((res: any) => {
-        (this.reviews = res), console.log(res);
+      .subscribe((res: any) => {this.reviews = res;
+         this.avgRate=this.reviews.reduce((acc:any, elem:any) => acc + elem.rate, 0);
+        this.avgRate = this.avgRate / this.reviews.length;
       });
     if (this.dataStored != null) {
       this.req.getUserBookData(this.dataStored[0].id).subscribe((res) => {
-        (this.mapedBooks = res);
+        this.mapedBooks = res;
       });
+
+      this.req
+        .getUsersBookData(
+          this.activatedRoute.snapshot.params['id'],
+          this.dataStored[0].id
+        )
+        .subscribe((res: any) => {
+          this.userRate = res,console.log(this.userRate);
+        });
     }
   }
-  addRev(review: any) {
+  addRev(review: any, rate: any) {
     if (this.dataStored == null) {
       {
         Swal.fire({
@@ -63,61 +80,80 @@ export class BookDetailsComponent {
             window.location.href = 'signin';
           }, 1000);
         });
-        // ,
-        //   console.log(res), window.location.reload();
       }
     } else {
       const data = {
         userId: this.dataStored[0].id,
-        bookId: this.book._id,
-        review: review,
+        bookId: this.activatedRoute.snapshot.params['id'],
+        authorId: this.book.authorId,
+        rate:rate,
+        review:review
       };
-      this.add.addReview(data).subscribe(
-        (res) => {
-          window.location.reload();
-        },
-        (err) => console.error(err)
-      );
+      console.log(data);
+
+      this.http.post('http://localhost:8080/userbooks/', data).subscribe(
+          (res) => {console.log(res);
+
+            window.location.reload();
+          },
+          (err) => console.error(err)
+        );
     }
   }
 
-  onSelected(id: any, value: any) {
-    const data = {
-      userId: this.dataStored[0].id,
-      bookId: this.activatedRoute.snapshot.params['id'],
-      authorId: this.book.authorId,
-      status: value,
-      rate: 0,
-    };
-    console.log(data);
 
-    console.log(this.mapedBooks);
 
-    this.mapedBooks = this.mapedBooks.filter(
-      (obj: any) => obj.bookId._id == this.activatedRoute.snapshot.params['id']
-    );
-    console.log(this.mapedBooks);
 
-    if (this.mapedBooks.length > 0) {
+  onSelected( value: any) {
+    if (this.dataStored == null) {
       Swal.fire({
         position: 'center',
         icon: 'error',
-        title: 'Already in yor list',
-        showConfirmButton: true,
+        title: 'Login First !!',
+        showConfirmButton: false,
+        timer: 1500,
+      }).then(() => {
+        setTimeout(() => {
+          window.location.href = 'signin';
+        }, 1000);
       });
     } else {
-      this.http.post('http://localhost:8080/userbooks/', data).subscribe(
-        (res) => {
-          console.log(res);
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Added to your list',
-            showConfirmButton: true,
-          });
-        },
-        (err) => console.error(err)
+      const data = {
+        userId: this.dataStored[0].id,
+        bookId: this.activatedRoute.snapshot.params['id'],
+        authorId: this.book.authorId,
+        status: value,
+      };
+      this.mapedBooks = this.mapedBooks.filter(
+        (obj: any) =>
+          obj.bookId._id == this.activatedRoute.snapshot.params['id']
       );
+      if (this.mapedBooks.length > 0) {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Already in your list',
+          showConfirmButton: true,
+        });
+      } else {
+        this.http.post('http://localhost:8080/userbooks/', data).subscribe(
+          (res) => {
+            console.log(res);
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Added to your list',
+              showConfirmButton: false,
+              timer: 1500,
+            }).then(() => {
+              setTimeout(() => {
+                window.location.reload();
+              }, 1500);
+            });
+          },
+          (err) => console.error(err)
+        );
+      }
     }
   }
 }

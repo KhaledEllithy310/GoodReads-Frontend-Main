@@ -16,9 +16,9 @@ export class GetdataService {
   getUserBookData(id: string) {
     return this.http.get(`http://localhost:8080/userbooks/${id}`);
   }
-  getUserRate(bId: string, uId: string) {
-    return this.http.get(`http://localhost:8080/rates/${bId}/${uId}`);
-  }
+  // getUserRate(bId: string, uId: string) {
+  //   return this.http.get(`http://localhost:8080/rates/${bId}/${uId}`);
+  // }
 
   //DISPLAY ALL CATEGORIES
   getAllCategory() {
@@ -42,11 +42,16 @@ getBookData(id: string) {
   return this.http.get(`http://localhost:8080/books/show/${id}`);
 }
 
-getReviews(id: string) {
-  return this.http.get(`http://localhost:8080/reviews/${id}`);
+getReviews(data: string) {
+  return this.http.post(`http://localhost:8080/userbooks/reviews/`,{bookId:data});
 }
   //DISPLAY ALL BOOKS
   getBookByCategory(id: any) {
     return this.http.get('http://localhost:8080/Books/category' + id);
+  }
+
+  //get reviews
+  getUsersBookData(bookId: string,userId:any) {
+    return this.http.get(`http://localhost:8080/userbooks/${bookId}/${userId}`);
   }
 }

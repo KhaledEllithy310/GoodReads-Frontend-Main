@@ -36,8 +36,8 @@
                   <th scope="col">Cover</th>
                   <th scope="col">Name</th>
                   <th scope="col">Author</th>
-                  <th scope="col">Avg Rate</th>
-                  <th scope="col">Rating</th>
+                  <th scope="col">Your Rate</th>
+                  <!-- <th scope="col">Rating</th> -->
                   <th scope="col">Shelve</th>
                   <th scope="col">Action</th>
                 </tr>
@@ -49,8 +49,8 @@
                   </td>
                   <td ><a routerLink="/book-details/{{book.bookId._id}}">{{book.bookId.title}}</a></td>
                   <td><a href="">{{book.authorId.first_name}} {{book.authorId.last_name}}</a></td>
-                  <td><ngb-rating #rate [rate]=book.rate (click)="updateRate(book._id,rate.rate)" ></ngb-rating></td>
-                  <td>book rate</td>
+                  <td><ngb-rating #rate [rate]=book.rate (click)="updateRate(book.bookId._id,rate.rate)" ></ngb-rating></td>
+                  <!-- <td>book rate</td> -->
                   <td>
                     <select #mySelect class="form-select w-75 m-auto "
                       aria-label=".form-select-lg example" (change)="onSelected(book._id,mySelect.value)">
@@ -75,8 +75,8 @@
                   <th scope="col">Cover</th>
                   <th scope="col">Name</th>
                   <th scope="col">Author</th>
-                  <th scope="col">Avg Rate</th>
-                  <th scope="col">Rating</th>
+                  <th scope="col">Your Rate</th>
+                  <!-- <th scope="col">Rating</th> -->
                   <th scope="col">Shelve</th>
                   <th scope="col">Action</th>
                 </tr>
@@ -88,8 +88,8 @@
                   </td>
                   <td><a href="">{{book.bookId.title}}</a></td>
                   <td><a href="">{{book.authorId.first_name}} {{book.authorId.last_name}}</a></td>
-                  <td><ngb-rating #rate [rate]=book.rate (click)="updateRate(book._id,rate.rate)" ></ngb-rating></td>
-                  <td>book rate</td>
+                  <td><ngb-rating #rate [rate]=book.rate (click)="updateRate(book.bookId._id,rate.rate)" ></ngb-rating></td>
+                  <!-- <td>book rate</td> -->
                   <td>
                     <select #mySelect class="form-select w-75 m-auto "
                       aria-label=".form-select-lg example" (change)="onSelected(book._id,mySelect.value)">
@@ -114,8 +114,8 @@
                   <th scope="col">Cover</th>
                   <th scope="col">Name</th>
                   <th scope="col">Author</th>
-                  <th scope="col">Avg Rate</th>
-                  <th scope="col">Rating</th>
+                  <th scope="col">Your Rate</th>
+                  <!-- <th scope="col">Rating</th> -->
                   <th scope="col">Shelve</th>
                   <th scope="col">Action</th>
                 </tr>
@@ -127,8 +127,8 @@
                   </td>
                   <td><a  class="data" href="">{{book.bookId.title}}</a></td>
                   <td><a href="">{{book.authorId.first_name}} {{book.authorId.last_name}}</a></td>
-                  <td><ngb-rating #rate [rate]=book.rate (click)="updateRate(book._id,rate.rate)" ></ngb-rating></td>
-                  <td>book rate</td>
+                  <td><ngb-rating #rate [rate]=book.rate (click)="updateRate(book.bookId._id,rate.rate)" ></ngb-rating></td>
+                  <!-- <td>book rate</td> -->
                   <td>
                     <select #mySelect class="form-select w-75 m-auto "
                       aria-label=".form-select-lg example" (change)="onSelected(book._id,mySelect.value)">
@@ -154,8 +154,8 @@
                   <th scope="col">Cover</th>
                   <th scope="col">Name</th>
                   <th scope="col">Author</th>
-                  <th scope="col">Avg Rate</th>
-                  <th scope="col">Rating</th>
+                  <th scope="col">Your Rate</th>
+                  <!-- <th scope="col">Rating</th> -->
                   <th scope="col">Shelve</th>
                   <th scope="col">Action</th>
                 </tr>
@@ -166,9 +166,9 @@
                     <img class="cover" src="http://localhost:8080/{{book.bookId.avatar.replace('assets\\', '')}}" srcset="">
                   </td>
                   <td><a  class="data" href="">{{book.bookId.title}}</a></td>
-                  <td><a href="">{{book.authorId.first_name}} {{book.authorId.last_name}}</a></td>
-                  <td><ngb-rating #rate [rate]=book.rate (click)="updateRate(book._id,rate.rate)" ></ngb-rating></td>
-                  <td>book rate</td>
+                  <td><a href="/author-details/{{book.authorId._id}}">{{book.authorId.first_name}} {{book.authorId.last_name}}</a></td>
+                  <td><ngb-rating #rate [rate]=book.rate (click)="updateRate(book.bookId._id,rate.rate)" ></ngb-rating></td>
+                  <!-- <td>book rate</td> -->
                   <td>
                     <select #mySelect class="form-select w-75 m-auto "
                       aria-label=".form-select-lg example" (change)="onSelected(book._id,mySelect.value)">
