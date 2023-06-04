@@ -1,4 +1,4 @@
-<!-- 
+<!--
 <div class="cards">
     <div class="face face1">
         <div class="content">
@@ -11,7 +11,7 @@
 <<<<<<< HEAD
             <a  (click)="redirectDetails(bookItem._id)">Read More</a>
 =======
-           
+
             <a  (click)="redirectDetails(bookItem.id)">Read More</a>
 
 >>>>>>> 19b66498808d627f6fb93eb42648a19bbc44bc92
@@ -20,11 +20,11 @@
 </div> -->
 
 
-  
-      
+
+
          <div class="cards">
             <div class ="box-img">
-                <img src="http://localhost:8080/{{bookItem.avatar.replace('assets/', '')}}"alt="" />
+                <img src="http://localhost:8080/{{bookItem.avatar.replace('assets\\', '')}}"alt="" />
             </div>
 
 
@@ -34,8 +34,8 @@
             <div class="info">
               <a (click)="redirectDetails(bookItem._id)" href="/book-details/{{bookItem._id}}">Read More</a>
               <i class="fas fa-long-arrow-alt-right"></i>
-            </div>   
+            </div>
          </div>
-        
-    
+
+
 

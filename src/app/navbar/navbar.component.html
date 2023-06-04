@@ -86,16 +86,16 @@
       >
         <li class="nav-item mx-3">
           <a class="nav-link log" href="profile">
-            <img
+            <img class="mb-2"
               src="http://localhost:8080/{{
                 respons?.avatar.replace('assets\\', '')
               }}"
             />
           </a>
         </li>
-        <li class="nav-item mt-1">
+        <li class="nav-item">
           <a class="nav-link log" href="" (click)="logOut()"
-            ><i class="fa-solid fa-right-from-bracket s"></i
+            ><i class="fa-solid fa-right-from-bracket s mt-3"></i
           ></a>
         </li>
       </ul>

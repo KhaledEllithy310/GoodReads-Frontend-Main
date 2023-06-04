@@ -20,7 +20,7 @@ export class BookByCategoryComponent {
     this.getBookByCategory(this.activatedRoute.snapshot.params['id']);
     console.log(this.activatedRoute.snapshot.params['id']);
     this.targetBooks = this.BooksOfCategory.find(
-      (category) => category.id == this.activatedRoute.snapshot.params['id']
+      (category) => category._id == this.activatedRoute.snapshot.params['id']
     );
     this.getAllBook();
   }
