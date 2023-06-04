@@ -1,6 +1,17 @@
 <div class="container bookCategory_container">
   <div class="row justify-content-between">
-    <div class="col-lg-3 p-2 g-2" *ngFor="let Book of BooksOfCategory">
+    <div
+      class="col-lg-3 p-2 g-2"
+      *ngFor="
+        let Book of BooksOfCategory
+          | paginate
+            : {
+                itemsPerPage: itemsPerPage,
+                currentPage: p,
+                totalItems: totalLength
+              }
+      "
+    >
       <div class="cards">
         <div class="box-img">
           <img
@@ -25,6 +36,10 @@
       </div>
     </div>
   </div>
+  <pagination-controls
+    class="text-center my-pagination"
+    (pageChange)="p = $event"
+  ></pagination-controls>
 </div>
 
 <!-- <div class="cards" *ngFor="let Book of BooksOfCategory">

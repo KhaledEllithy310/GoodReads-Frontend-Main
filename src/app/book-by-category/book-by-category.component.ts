@@ -21,10 +21,10 @@ export class BookByCategoryComponent {
     this.getAllBook();
   }
 
+  //PAGENATION
   totalLength: any;
   p: number = 1;
-  itemsPerPage: number = 8;
-
+  itemsPerPage: number = 4;
   getBookByCategory(id: any) {
     this.GetdataService.getBookByCategory(id).subscribe((res: any) => {
       console.log(res);
@@ -33,10 +33,11 @@ export class BookByCategoryComponent {
 
   getAllBook() {
     return this.GetdataService.getAllBook().subscribe((res: any) => {
-      this.BooksOfCategory = res.response.filter(
+      (this.BooksOfCategory = res.response.filter(
         (elem: any) =>
           elem.categoryId._id == this.activatedRoute.snapshot.params['id']
-      );
+      )),
+        (this.totalLength = res.length);
     });
   }
 
