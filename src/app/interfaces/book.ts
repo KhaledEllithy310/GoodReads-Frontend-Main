@@ -1,5 +1,6 @@
 export interface Book {
-    _id: string;
+
+    _id: number;
      title: string;
      description :string;
      avatar:string;

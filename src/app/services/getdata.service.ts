@@ -45,4 +45,8 @@ getBookData(id: string) {
 getReviews(id: string) {
   return this.http.get(`http://localhost:8080/reviews/${id}`);
 }
+  //DISPLAY ALL BOOKS
+  getBookByCategory(id: any) {
+    return this.http.get('http://localhost:8080/Books/category' + id);
+  }
 }

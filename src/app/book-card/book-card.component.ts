@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
 
+
 import { Book } from './../interfaces/book';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
@@ -10,6 +11,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class BookCardComponent {
   @Input() bookItem !: Book;
+  
   @Output() emitFromChild = new EventEmitter()
   constructor(private router: Router){}
 

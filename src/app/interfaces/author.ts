@@ -1,4 +1,6 @@
 export interface Author {
-    "avatar":string,
-    "name" :string
+    _id: number;
+    avatar: string,
+    first_name : string,
+    last_name : string
 }

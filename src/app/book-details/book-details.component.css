@@ -71,7 +71,7 @@ header .contant p {
 .contant a{
     font-size: 30px;
     text-decoration: none;
-    color: #6d5dfc;
+    color: rgb(109, 93, 252);
 
 }
 .contant a:hover{
@@ -135,7 +135,7 @@ header .img-header img {
 }
 
 .form-select{
-  background-color: #6d5dfc;
+  background-color:rgb(109, 93, 252);
 }
 .cat{
   font-size: 15px !important;

@@ -1,40 +1,40 @@
 .team {
-    padding-top: 100px;
-    position: relative;
-  }
-  .team .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-    gap: 30px;
-  }
-  .team .box {
-    position: relative;
-  }
-  .team .box::before,
-  .team .box::after {
-    content: "";
-    background-color: #f3f3f3;
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    border-radius: 10px;
-    transition: var(--main-transition);
-  }
-  .team .box::before {
-    width: calc(100% - 60px);
-    z-index: -2;
-  }
-  .team .box::after {
-    z-index: -1;
-    background-color: #e4e4e4;
-    width: 0;
-  }
-  .team .box:hover::after {
-    width: calc(100% - 60px);
-  }
+  padding-top: 100px;
+  position: relative;
+}
+.team .containers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 30px;
+}
+.team .box {
+  position: relative;
+}
+.team .box::before,
+.team .box::after {
+  content: "";
+  background-color: #f3f3f3;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 10px;
+  transition: var(--main-transition);
+}
+.team .box::before {
+  width: calc(100% - 60px);
+  z-index: -2;
+}
+.team .box::after {
+  z-index: -1;
+  background-color: #e4e4e4;
+  width: 0;
+}
+.team .box:hover::after {
+  width: calc(100% - 60px);
+}
 
-  .my-pagination::ng-deep .ngx-pagination .current {
-    background:  #1a065f;
-    border-radius: 50%;
-   };
+.my-pagination::ng-deep .ngx-pagination .current {
+  background: #3777FC;
+  border-radius: 50%;
+ };

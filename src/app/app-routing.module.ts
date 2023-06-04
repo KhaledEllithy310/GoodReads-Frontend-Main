@@ -1,3 +1,5 @@
+import { AllAuthorsComponent } from './all-authors/all-authors.component';
+import { AllBooksComponent } from './all-books/all-books.component';
 import { FooterComponent } from './footer/footer.component';
 import { AuthorDetailsComponent } from './author-details/author-details.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
@@ -15,16 +17,24 @@ import { AdminBookComponent } from './admin-book/admin-book.component';
 import { AdminAuthorComponent } from './admin-author/admin-author.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminGuard } from './guards/admin.guard';
+import { BookByCategoryComponent } from './book-by-category/book-by-category.component';
 // import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 const routes: Routes = [
-  // {
-  //   path:"",
-  //   component:HeaderpageComponent
-  // }
-  // ,
   {
-    path: 'book-details',
+    path: 'author-details',
+    component: AuthorDetailsComponent,
+  },
+  {
+    path: 'all-books',
+    component: AllBooksComponent,
+  },
+  {
+    path: 'all-authors',
+    component: AllAuthorsComponent,
+  },
+  {
+    path: 'book-details/:id',
     component: BookDetailsComponent
   },
   {
@@ -36,12 +46,12 @@ const routes: Routes = [
     component: SignUpComponent,
   },
   {
-    path: 'profile',
-    component: UserprofileComponent,
+    path: 'BookByCategory/:id',
+    component: BookByCategoryComponent,
   },
   {
-    path: 'book-details/:id',
-    component: BookDetailsComponent
+    path: 'profile',
+    component: UserprofileComponent,
   },
   {
     path: 'admin',
@@ -60,8 +70,7 @@ const routes: Routes = [
         path: 'books',
         component: AdminBookComponent,
       },
-
-    ]
+    ],
   },
   {
   path:'',
@@ -84,13 +93,16 @@ const routes: Routes = [
       component: FooterComponent
     },
 
-  ]}
-
+  ]},
+  {
+    path: '**',
+    component: NotFoundPageComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers:[AdminGuard],
+  providers: [AdminGuard],
 })
 export class AppRoutingModule {}
