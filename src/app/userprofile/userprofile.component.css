@@ -28,7 +28,7 @@ p{
 .edit{
   position: absolute;
   font-size: 30px;
-  top: 82px;
+  top: 152px;
   left: 30;
 }
 td{
@@ -36,4 +36,8 @@ td{
 }
 i{
   cursor: pointer;
+}
+
+.container{
+  margin-top: 140px;
 }

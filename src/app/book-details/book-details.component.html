@@ -1,65 +1,52 @@
-<header>
-  <div class="container mt-4">
+<header class="container m-auto">
+  <div class="">
     <div class="row p-5">
       <div class="img-header text-center">
-        <img src="../../assets/images/blog-1.jpg" alt="">
-        <select class="form-select form-select-lg mb-3 mt-4 p-2 text-light" aria-label=".form-select-lg example">
+        <img src="http://localhost:8080/{{book?.avatar.replace('assets\\', '')}}" alt="">
+        <select #mySelect class="form-select form-select-lg mb-3 mt-4 p-2 text-light" aria-label=".form-select-lg example" (change)="onSelected(book._id,mySelect.value)">
           <option value="readed">readed</option>
           <option value="Want to read" selected>Want to read</option>
           <option value="reading">reading</option>
         </select>
-        <!-- <div class="dropdown  drop">
-          <a class="btn btn-secondary dropdown-toggle p-4 w-100 " href="#" role="button" id="dropdownMenuLink"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Want to read
-          </a>
-          <ul class="dropdown-menu w-100 " aria-labelledby="dropdownMenuLink">
-            <li><a class="dropdown-item" href="#">readed</a></li>
-            <li><a class="dropdown-item" href="#">reading</a></li>
-            <li><a class="dropdown-item" href="#">Want to read</a></li>
-          </ul>
-        </div> -->
-
+        <ngb-rating [(rate)]="currentRate" [readonly]=false></ngb-rating>
       </div>
       <div class="contant">
-        <h1>Book Name</h1>
-        <a href="#"> Book Author</a>
+        <h1>{{book.title}}</h1>
+        <a href="#">{{book.authorId.first_name}} {{book.authorId.last_name}}</a>
         <ngb-rating [(rate)]="currentRate"></ngb-rating>
 
-        <p class="text-secondary p-1">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-          ex ea
-          commodo consequat is aute irure.</p>
-        <div> <label class="labl mx-2" for="">Genres </label><a class="cat" href="#">Category name</a></div>
+        <p class="text-secondary p-1">{{book.description}}</p>
+        <div> <label class="labl mx-2" for="">Genres </label><a class="cat" href="#">{{book.categoryId.name}}</a></div>
+        <div class="review mt-5">
+          <h2 class="pt-4 ps-4 pb-4 text-danger">Reviews</h2>
+          <div class="row ps-3" *ngFor="let review of reviews">
+            <div class="colm d-flex">
+              <div class="img-header  ">
+                <img src="http://localhost:8080/{{review.userId?.avatar.replace('assets\\', '')}}" alt="">
+              </div>
+              <div class="rev mt-2">
+                <h5>{{review.userId.firstName}} {{review.userId.lastName}}</h5>
+                <ngb-rating class="rate" [rate]=book.rate></ngb-rating>
 
-
-      </div>
-
-    </div>
-
-    <div class="review  m-5">
-      <h2 class="pt-4 ps-4 pb-4 text-danger">Reviews</h2>
-      <div class="row ps-3">
-        <div class="colm d-flex">
-          <div class="img-header  ">
-            <img src="../../assets/images/blog-1.jpg" alt="">
+                <p class="text-secondary ">{{review.review}}</p>
+              </div>
+            </div>
           </div>
-          <div class="rev mt-2">
-            <h5>Author Name</h5>
-            <ngb-rating [(rate)]="currentRate"></ngb-rating>
+          <hr class="w-75 m-auto">
 
-            <p class="text-secondary ">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea
-              commodo consequat is aute irure.</p>
-          </div>
+        </div>
+        <div class="container text-center">
+          <textarea #review class="mt-5" name="" id="area" cols="60" rows="5"></textarea>
+          <button class="btn btn-success d-block m-auto pb-2 pt-2 ps-4 px-4 vir mb-5" (click)="addRev(review.value)">Review</button>
         </div>
       </div>
-      <hr class="w-75 m-auto">
+
 
     </div>
 
   </div>
-<div class="container text-center">
- <textarea name="" id="area" cols="60" rows="5"></textarea>
 
-</div><button class="btn btn-success">Review</button>
+
+
+
 </header>

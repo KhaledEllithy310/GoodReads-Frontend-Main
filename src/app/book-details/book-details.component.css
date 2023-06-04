@@ -12,6 +12,7 @@ header {
     background-color: #F0F0F2;
     overflow: hidden;
     /* height: 100vh; */
+    margin-top: 100px !important;
 }
 
 .row {
@@ -84,7 +85,7 @@ header .img-header {
 
 header .img-header img {
     width: 300px;
-    height: 300px;
+    /* height: 300px; */
     animation-name: imgaction;
     animation-duration: 2s;
     animation-iteration-count: infinite;
@@ -168,7 +169,13 @@ margin-top: ;
 
 }
 #area{
-  width:70%;
+  width:100%;
   /* margin: auto !important; */
   box-sizing: border-box;
+}
+.btn{
+  background-color: #6d5dfc;
+}
+.rate{
+  font-size: 18px;
 }

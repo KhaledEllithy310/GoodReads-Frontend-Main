@@ -16,7 +16,7 @@ export class BookListComponent {
     this.getAllBook(),
     this.getAllBookapi()
   }
- 
+
   totalLength:any;
   p:number =1;
   itemsPerPage:number= 8
@@ -27,13 +27,13 @@ export class BookListComponent {
 
     })
 
-  
+
   }
   getAllBookapi(){
     this.GetdataService.getAllBook().subscribe((res: any) => {
       console.log(res.response);
     });
   }
- 
-  
+
+
 }

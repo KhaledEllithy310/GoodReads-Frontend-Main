@@ -47,7 +47,7 @@
                   <td>
                     <img class="cover" src="http://localhost:8080/{{book.bookId.avatar.replace('assets\\', '')}}" srcset="">
                   </td>
-                  <td ><a href="">{{book.bookId.title}}</a></td>
+                  <td ><a routerLink="/book-details/{{book.bookId._id}}">{{book.bookId.title}}</a></td>
                   <td><a href="">{{book.authorId.first_name}} {{book.authorId.last_name}}</a></td>
                   <td><ngb-rating #rate [rate]=book.rate (click)="updateRate(book._id,rate.rate)" ></ngb-rating></td>
                   <td>book rate</td>

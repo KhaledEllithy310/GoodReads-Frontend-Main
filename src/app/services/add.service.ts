@@ -22,4 +22,9 @@ export class AddService {
   createBook(data: any) {
     return this.http.post('http://localhost:8080/Books/store/', data);
   }
+
+  //Add review
+  addReview(data: any) {
+    return this.http.post('http://localhost:8080/reviews', data);
+  }
 }

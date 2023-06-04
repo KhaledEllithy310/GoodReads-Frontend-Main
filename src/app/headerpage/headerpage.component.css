@@ -9,6 +9,7 @@ a{
     display: flex;
     justify-content: space-around;
     background-color: #fff;
+    margin-top: 105px;
 
     box-shadow: 5px 5px 10px rgb(119, 109, 109), -5px -5px 10px rgb(163, 154, 154);
 }

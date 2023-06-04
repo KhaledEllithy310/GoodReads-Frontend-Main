@@ -35,17 +35,18 @@
       </ul>
 
 
-      <div class="d-flex mx-3 cont">
+      <div class="d-flex mx-3 cont" (hover)="showResults=true" (blur)="showResults=false;blur()">
         <select #select class="form-select form-select-sm" aria-label=".form-select-sm example">
           <option value="books" selected>books</option>
           <option value="authors">authors</option>
         </select>
-        <input #input id="search-input" type="text" placeholder="search ...." class="form-control search" aria-label="Text input with segmented dropdown button" (focus)="showResults = true" (blur)="showResults = false;input.value='';blur()" (keyup)="search(input.value,select.value)">
+        <input #input id="search-input" type="text" placeholder="search ...." class="form-control search" aria-label="Text input with segmented dropdown button" (focus)="showResults = true" (keyup)="search(input.value,select.value)">
         <div class="res" *ngIf="showResults">
           <table class="table">
               <tr *ngFor="let res of searched">
                 <td><img src="http://localhost:8080/{{res?.avatar.replace('assets\\', '')}}" ></td>
-                <td>{{res.title}}{{res.first_name}} {{res.last_name}}</td>
+                <td *ngIf="select.value == 'books'"><a href="/book-details/{{res._id}}">{{res.title}}</a></td>
+                <td *ngIf="select.value == 'authors'"><a href="">{{res.first_name}} {{res.last_name}}</a></td>
               </tr>
           </table></div>
       </div>

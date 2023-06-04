@@ -38,5 +38,11 @@ export class GetdataService {
 authData(data:any){
   return this.http.post('http://localhost:8080/welcome/',data);
 }
+getBookData(id: string) {
+  return this.http.get(`http://localhost:8080/books/show/${id}`);
+}
 
+getReviews(id: string) {
+  return this.http.get(`http://localhost:8080/reviews/${id}`);
+}
 }

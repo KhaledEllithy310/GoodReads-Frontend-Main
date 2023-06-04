@@ -40,7 +40,7 @@ const routes: Routes = [
     component: UserprofileComponent,
   },
   {
-    path: 'book-details',
+    path: 'book-details/:id',
     component: BookDetailsComponent
   },
   {
@@ -85,7 +85,7 @@ const routes: Routes = [
     },
 
   ]}
- 
+
 ];
 
 @NgModule({
