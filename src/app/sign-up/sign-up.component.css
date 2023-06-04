@@ -68,16 +68,13 @@ form button {
 .file{
   height: auto;
 } */
-<<<<<<< HEAD
 
-.signup
-{
+.signup{
 margin-top: 120px;
-=======
+}
 .signup form {
   padding: 20px;
   box-shadow: 8px -8px 9px #969aa1;
   box-shadow: 0 0 20px #969aa1;
   margin-top: 25px;
->>>>>>> 19b66498808d627f6fb93eb42648a19bbc44bc92
 }
