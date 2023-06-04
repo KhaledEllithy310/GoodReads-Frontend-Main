@@ -8,7 +8,7 @@
           <option value="Want to read" selected>Want to read</option>
           <option value="reading">reading</option>
         </select>
-        <ngb-rating [(rate)]="currentRate" [readonly]=false></ngb-rating>
+        <ngb-rating [(rate)]="-currentRate" [readonly]=false></ngb-rating>
       </div>
       <div class="contant">
         <h1>{{book.title}}</h1>

@@ -35,18 +35,24 @@ export class GetdataService {
     return this.http.get('http://localhost:8080/Books/');
   }
 
-authData(data:any){
-  return this.http.post('http://localhost:8080/welcome/',data);
-}
-getBookData(id: string) {
-  return this.http.get(`http://localhost:8080/books/show/${id}`);
-}
+  authData(data: any) {
+    return this.http.post('http://localhost:8080/welcome/', data);
+  }
+  getBookData(id: string) {
+    return this.http.get(`http://localhost:8080/books/show/${id}`);
+  }
 
-getReviews(id: string) {
-  return this.http.get(`http://localhost:8080/reviews/${id}`);
-}
-  //DISPLAY ALL BOOKS
+  getReviews(id: string) {
+    return this.http.get(`http://localhost:8080/reviews/${id}`);
+  }
+
+  //DISPLAY ALL BOOKS BY CATEGORY
   getBookByCategory(id: any) {
     return this.http.get('http://localhost:8080/Books/category' + id);
+  }
+
+  //DISPLAY ALL BOOKS BY AUTHOR
+  getBookByAuthor(id: any) {
+    return this.http.get('http://localhost:8080/Books/author' + id);
   }
 }
