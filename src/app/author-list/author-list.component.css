@@ -3,16 +3,18 @@
   position: relative;
 }
 .team .containers {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); */
   gap: 30px;
+  display: flex;
+  justify-content: space-between;
 }
 .team .box {
   position: relative;
 }
 .team .box::before,
 .team .box::after {
-  content: "";
+  content: '';
   background-color: #f3f3f3;
   position: absolute;
   right: 0;
@@ -35,6 +37,6 @@
 }
 
 .my-pagination::ng-deep .ngx-pagination .current {
-  background: #3777FC;
+  background: #3777fc;
   border-radius: 50%;
- };
+}
