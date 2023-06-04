@@ -1,4 +1,4 @@
-a{ 
+a {
   text-decoration: none;
 }
 .boxs {
@@ -6,7 +6,7 @@ a{
 }
 .boxs::before,
 .boxs::after {
-  content: "";
+  content: '';
   background-color: #f3f3f3;
   position: absolute;
   right: 0;
@@ -16,7 +16,7 @@ a{
   transition: 0.3s;
 }
 .boxs::before {
-  width: calc(100% - 60px);
+  width: calc(100% - 30px);
   z-index: -2;
 }
 .boxs::after {
@@ -33,14 +33,18 @@ a{
   padding-top: 40px;
 }
 .data img {
-  width: calc(100% - 60px);
+  width: 225px;
   transition: 0.3s;
   border-radius: 10px;
   height: 250px;
+  /* filter: grayscale(100%); */
 }
-.team .boxs:hover img {
+
+/* .data:hover {
+  filter: grayscale(0%);
   filter: grayscale(100%);
-}
+} */
+
 .data .social {
   width: 60px;
   display: flex;
@@ -56,7 +60,7 @@ a{
   align-items: center;
 }
 .data .social a:hover i {
-  color:  #3777FC;
+  color: #3777fc;
 }
 .data .social i {
   color: #777;
@@ -67,7 +71,7 @@ a{
 }
 .info h3 {
   margin-bottom: 0;
-  color:  #3777FC;
+  color: #3777fc;
   font-size: 22px;
   transition: 0.3s;
   padding: 10px;

@@ -35,12 +35,12 @@ export class GetdataService {
     return this.http.get('http://localhost:8080/Books/');
   }
 
-authData(data:any){
-  return this.http.post('http://localhost:8080/welcome/',data);
-}
-getBookData(id: string) {
-  return this.http.get(`http://localhost:8080/books/show/${id}`);
-}
+  authData(data: any) {
+    return this.http.post('http://localhost:8080/welcome/', data);
+  }
+  getBookData(id: string) {
+    return this.http.get(`http://localhost:8080/books/show/${id}`);
+  }
 
 getReviews(data: string) {
   return this.http.post(`http://localhost:8080/userbooks/reviews/`,{bookId:data});
@@ -52,6 +52,9 @@ getReviews(data: string) {
 
   //get reviews
   getUsersBookData(bookId: string,userId:any) {
-    return this.http.get(`http://localhost:8080/userbooks/${bookId}/${userId}`);
+    return this.http.get(`http://localhost:8080/userbooks/${bookId}/${userId}`);}
+  //DISPLAY ALL BOOKS BY AUTHOR
+  getBookByAuthor(id: any) {
+    return this.http.get('http://localhost:8080/Books/author' + id);
   }
 }

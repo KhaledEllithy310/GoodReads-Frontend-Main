@@ -1,64 +1,76 @@
-<div class="row ">
-    <div class="colm d-flex">
-      <div class="img-header w-25 ">
-        <img class="w-100" src="../../assets/images/book-1.png" alt="">
+<div class="container author_container">
+  <div class="row">
+    <div class="col d-flex">
+      <div class="img-header w-25">
+        <img
+          class="w-100"
+          src="http://localhost:8080/{{
+            targetAuthor[0].avatar.replace('assets\\', '')
+          }}"
+          alt=""
+        />
       </div>
-      <div class="contant w-50">
-        <h1>Author Name</h1>
-        <h3>15/5/1999</h3>
-        <p class="text-secondary ">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-          ea
-          commodo consequat is aute irure.
+      <div class="contant w-50 author_title">
+        <h1>
+          {{ targetAuthor[0].first_name + " " + targetAuthor[0].last_name }}
+        </h1>
+        <h3>{{ targetAuthor[0].dateOfBirth | date : "d-M-y" }}</h3>
+        <p class="">
+          {{ targetAuthor[0].first_name + " " + targetAuthor[0].last_name }}
+          was born the second son of Donald and Nellie Ruth Pillsbury King.
+          After his father left them when Stephen was two, he and his older
+          brother, David, were raised by his mother. Parts of his childhood were
+          spent in Fort Wayne, Indiana, where his father's family was at the
+          time, and in Stratford, Connecticut. When Stephen was eleven, his
+          mother brought her children back to Durham, Maine, for good. Her
+          parents, Guy and Nellie Pillsbury, had become incapacitated with old
+          age, and Ruth King was persuaded by her sisters to take over the
+          physical care of them. Other family members provided a small house in
+          Durham and financial support. After Stephen's grandparents passed
+          away, Mrs. King found work in the kitchens of Pineland, a nearby
+          residential facility for the mentally challenged.Stephen attended the
+          grammar school in Durham and Lisbon Falls High School, graduating in
+          1966.
         </p>
       </div>
     </div>
   </div>
-  <div class="review m-auto p-5">
-  
-    <div class="row p-5">
-      <div class="colm d-flex ">
-        <div class="img-header  ">
-          <img src="../../assets/images/book-1.png" alt="">
-          <h5 p-4> Author Name</h5>
+  <div class="review">
+    <div class="row">
+      <div class="author_pagnation">
+        <div
+          class="p-2 author_card"
+          *ngFor="
+            let Book of BooksOfAuthor
+              | paginate
+                : {
+                    itemsPerPage: itemsPerPage,
+                    currentPage: p,
+                    totalItems: totalLength
+                  }
+          "
+        >
+          <div class="img_container">
+            <img
+              src="http://localhost:8080/{{
+                Book.avatar.replace('assets\\', '')
+              }}"
+              alt=""
+            />
+          </div>
+          <h5 class="p-2">
+            <a
+              href="book-details/{{ Book._id }}"
+              (click)="redirectDetails(Book._id)"
+              >{{ Book.title }}</a
+            >
+          </h5>
         </div>
-        <div class="img-header  ">
-          <img src="../../assets/images/book-2.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        <div class="img-header  ">
-          <img src="../../assets/images/book-3.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        <div class="img-header  ">
-          <img src="../../assets/images/book-4.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        <div class="img-header  ">
-          <img src="../../assets/images/book-5.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        <div class="img-header  ">
-          <img src="../../assets/images/book-6.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        <div class="img-header  ">
-          <img src="../../assets/images/book-7.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        <div class="img-header  ">
-          <img src="../../assets/images/book-8.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        <div class="img-header  ">
-          <img src="../../assets/images/book-9.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        <div class="img-header  ">
-          <img src="../../assets/images/book-10.png" alt="">
-          <h5 p-4> Author Name</h5>
-        </div>
-        
       </div>
-  
-  
     </div>
+    <pagination-controls
+      class="text-center my-pagination"
+      (pageChange)="p = $event"
+    ></pagination-controls>
+  </div>
+</div>

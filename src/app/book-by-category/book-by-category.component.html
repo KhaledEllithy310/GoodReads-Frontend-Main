@@ -1,17 +1,62 @@
-<div class="cards" *ngFor="let Book of BooksOfCategory">
-  <div class="face face1">
-    <div class="content">
-      <img
-        src="http://localhost:8080/{{Book.avatar.replace('assets\\', '')}}"
-        alt=""
-      />
-      <h5>{{ Book.title | uppercase }}</h5>
+<div class="container bookCategory_container">
+  <div class="row justify-content-between">
+    <div
+      class="col-lg-3 p-2 g-2"
+      *ngFor="
+        let Book of BooksOfCategory
+          | paginate
+            : {
+                itemsPerPage: itemsPerPage,
+                currentPage: p,
+                totalItems: totalLength
+              }
+      "
+    >
+      <div class="cards">
+        <div class="box-img">
+          <img
+            src="http://localhost:8080/{{
+              Book.avatar.replace('assets\\', '')
+            }}"
+            alt=""
+          />
+        </div>
+
+        <div class="content">
+          <h3 class="title_row">{{ Book.title | uppercase }}</h3>
+        </div>
+        <div class="info">
+          <a
+            (click)="redirectDetails(Book._id)"
+            href="/book-details/{{ Book._id }}"
+            >Read More</a
+          >
+          <i class="fas fa-long-arrow-alt-right"></i>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="face face2">
-    <div class="content">
-      <p>{{ Book.description }}</p>
-    </div>
-  </div>
+  <pagination-controls
+    class="text-center my-pagination"
+    (pageChange)="p = $event"
+  ></pagination-controls>
 </div>
-<p>khaled</p>
+
+<!-- <div class="cards" *ngFor="let Book of BooksOfCategory">
+  <div class="box-img">
+    <img
+      src="http://localhost:8080/{{ Book.avatar.replace('assets\\', '') }}"
+      alt=""
+    />
+  </div>
+
+  <div class="content">
+    <h3 class="title_row">{{ Book.title | uppercase }}</h3>
+  </div>
+  <div class="info">
+    <a (click)="redirectDetails(Book._id)" href="/book-details/{{ Book._id }}"
+      >Read More</a
+    >
+    <i class="fas fa-long-arrow-alt-right"></i>
+  </div>
+</div> -->

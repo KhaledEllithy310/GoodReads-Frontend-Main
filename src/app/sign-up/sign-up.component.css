@@ -1,80 +1,69 @@
-/* *,
-*:before,
-*:after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
 
-form {
-  width: 400px;
-  background-color: rgb(0 0 0 / 12%);
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 57%;
-  left: 50%;
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-  padding: 50px 35px;
-}
-form * {
-  font-family: 'Poppins', sans-serif;
-  color: #110e0e;
-  letter-spacing: 0.5px;
-  outline: none;
-  border: none;
-}
-form h3 {
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 42px;
-  text-align: center;
-}
-
-label {
-  display: block;
-  margin-top: 20px;
-  font-size: 16px;
-  font-weight: 500;
-}
-input {
-  display: block;
-  height: 40px;
-  width: 100%;
-  background-color: rgba(22, 21, 21, 0.188);
-  border-radius: 3px;
-  padding: 0 10px;
-  margin-top: 5px;
-  font-size: 14px;
-  font-weight: 300;
-  color: white;
-}
-::placeholder {
-  color: #e5e5e5;
-}
-form button {
-  margin-top: 30px;
-  width: 100%;
-  background-color: #000000;
-  color: #ffffff;
-  padding: 15px 0;
-  font-size: 18px;
-  font-weight: 600;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.file{
-  height: auto;
-} */
-
-.signup{
-margin-top: 120px;
-}
 .signup form {
+  margin-top: 70px;
+  padding: 25px;
+}
+
+.back h2 {
+  margin-top: 0 !important;
+  margin-bottom: 15px !important;
+}
+
+.back input {
+  color: rgb(83, 83, 83);
+}
+
+.back .error_form {
+  margin: 0;
+  padding: 5px;
+}
+
+.signup {
   padding: 20px;
-  box-shadow: 8px -8px 9px #969aa1;
-  box-shadow: 0 0 20px #969aa1;
-  margin-top: 25px;
+}
+
+.signup .input_container label {
+  width: 190px;
+  color: rgb(83, 83, 83);
+}
+/* nav{
+  box-shadow: 5px 5px 10px rgb(119, 109, 109), -5px -5px 10px rgb(163, 154, 154);
+} */
+.back {
+  background-color: #eee;
+  height: 100%;
+  background-image: url('https://images.pexels.com/photos/2177482/pexels-photo-2177482.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.back::after {
+  content: '';
+  background-color: rgba(0, 0, 0, 0.507);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  z-index: -1;
+}
+
+.signup .bgGreyLight_1 {
+  background-color: #b4b4b4 !important;
+  /* height: 550px; */
+  width: 80%;
+  margin-inline: auto;
+}
+
+.signup input::placeholder {
+  color: rgb(107, 107, 107);
+}
+
+.signup .title_form {
+  margin-top: 40px;
+  color: rgb(0 0 0 / 55%);
+}
+
+.signup .account {
+  margin-bottom: 0;
 }

@@ -11,13 +11,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class BookCardComponent {
   @Input() bookItem !: Book;
-  
+
   @Output() emitFromChild = new EventEmitter()
   constructor(private router: Router){}
 
+  //REDIRECT TO BOOK DETAILS PAGE
   redirectDetails(id : any){console.log(id);
     this.router.navigate(['book-details',id])
-
-    // this.emitFromChild.emit(id)
 }
 }

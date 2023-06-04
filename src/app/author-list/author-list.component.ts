@@ -5,32 +5,25 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-author-list',
   templateUrl: './author-list.component.html',
-  styleUrls: ['./author-list.component.css']
+  styleUrls: ['./author-list.component.css'],
 })
 export class AuthorListComponent {
-  cards : Author[] = []
+  cards: Author[] = [];
 
-
-  constructor(public router: Router,private GetdataService :GetdataService ){}
-  ngOnInit(){
-    this.  getAllAuthor()
- 
+  constructor(public router: Router, private GetdataService: GetdataService) {}
+  ngOnInit() {
+    this.getAllAuthor();
   }
-  redirectDetails(id:any){
-    this.router.navigate(['products-dtails',id])
+  redirectDetails(id: any) {
+    this.router.navigate(['products-dtails', id]);
   }
-  totalLength:any;
-  p:number =1;
-  itemsPerPage:number= 5
-  getAllAuthor(){
-    this.GetdataService.getAllAuthor().subscribe((res:any)=>{
-    this.cards = res;
-    this.totalLength =res.length;
-      
-    })
-
-
+  totalLength: any;
+  p: number = 1;
+  itemsPerPage: number = 4;
+  getAllAuthor() {
+    this.GetdataService.getAllAuthor().subscribe((res: any) => {
+      this.cards = res;
+      this.totalLength = res.length;
+    });
   }
-
-
 }

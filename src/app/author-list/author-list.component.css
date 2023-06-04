@@ -4,25 +4,27 @@
 }
 .team .containers {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 40px;
+  /* display: flex; */
+  /* justify-content: space-between; */
 }
 .team .box {
   position: relative;
 }
 .team .box::before,
 .team .box::after {
-  content: "";
+  content: '';
   background-color: #f3f3f3;
   position: absolute;
   right: 0;
   top: 0;
   height: 100%;
   border-radius: 10px;
-  transition: var(--main-transition);
+  transition: 0.4s;
 }
 .team .box::before {
-  width: calc(100% - 60px);
+  width: calc(100% - 30px);
   z-index: -2;
 }
 .team .box::after {
@@ -31,10 +33,10 @@
   width: 0;
 }
 .team .box:hover::after {
-  width: calc(100% - 60px);
+  width: calc(100% - 30px);
 }
 
 .my-pagination::ng-deep .ngx-pagination .current {
-  background: #3777FC;
+  background: #3777fc;
   border-radius: 50%;
- };
+}

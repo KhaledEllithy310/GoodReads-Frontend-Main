@@ -13,7 +13,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto  mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active title_page" aria-current="page" routerLink="/"
             >BookStore</a
@@ -26,7 +26,7 @@
           <a class="nav-link category_list">Categories</a>
           <div class="container_category" id="container_category">
             <div class="category_drop" id="category_drop">
-              <li *ngFor="let category of categories">
+              <li class="liContainer" *ngFor="let category of categories">
                 <i class="fa-solid fa-chevron-right"></i
                 ><a
                   href="/BookByCategory/{{ category._id }}"
@@ -39,9 +39,6 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/all-authors">Authors</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="#">Term & Condtions</a>
         </li>
         <li
           class="nav-item"
@@ -85,7 +82,7 @@
         [ngClass]="{ 'visually-hidden': isLoggedIn == null }"
       >
         <li class="nav-item mx-3">
-          <a class="nav-link log" href="profile">
+          <a class="nav-link log img_user" href="profile">
             <img class="mb-2"
               src="http://localhost:8080/{{
                 respons?.avatar.replace('assets\\', '')

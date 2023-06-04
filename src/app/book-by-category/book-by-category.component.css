@@ -1,0 +1,65 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+.box-img {
+  height: 350px;
+}
+.cards {
+  box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
+  background-color: white;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.cards:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 2px 15px rgb(0 0 0 / 20%);
+}
+.cards img {
+  width: 100%;
+  height: 100%;
+}
+.cards .content {
+  padding: 15px;
+  text-align: center;
+}
+.cards .content h3 {
+  margin: 0;
+  font-size: 22px;
+}
+.cards .content p {
+  margin: 10px 0 0;
+  line-height: 1.5;
+  color: #777;
+}
+.cards .info {
+  padding: 20px;
+  border-top: 1px solid #e6e6e7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cards .info a {
+  color: #3777fc;
+  font-weight: bold;
+}
+.cards .info i {
+  color: #3777fc;
+}
+.cards:hover .info i {
+  animation: moving-arrow 0.6s linear infinite;
+}
+
+.bookCategory_container {
+  margin-top: 130px;
+}
+
+.my-pagination::ng-deep .ngx-pagination .current {
+  margin-top: 20px;
+  background: #3777fc;
+  border-radius: 50%;
+}

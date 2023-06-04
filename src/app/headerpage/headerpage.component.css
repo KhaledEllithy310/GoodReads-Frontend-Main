@@ -59,7 +59,7 @@ a {
 .body-content .b-title button::after {
   content: '';
   position: absolute;
-  background-color: #3f3d56;
+  /* background-color: #3f3d56; */
   background-color: #ccc;
   width: 0%;
   height: 100%;
@@ -101,3 +101,5 @@ a {
   height: 500px;
   margin-right: 100px;
 }
+
+
